@@ -152,7 +152,7 @@ export default function Projects() {
     },
   ];
   return (
-    <Wrapper className="w-full">
+    <Wrapper className="w-full" id="projects">
       <Container>
         {" "}
         <TitleSubtitle

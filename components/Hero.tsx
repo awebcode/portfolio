@@ -39,12 +39,12 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="mt-8 flex justify-center space-x-6"
             >
-              <PrimaryButton>
-                <Link href="#projects">View My Work</Link>
+              <PrimaryButton href="#projects">
+               View My Work
               </PrimaryButton>
 
-              <PrimaryButton className="bg-primary hover:bg-indigo-400">
-                <Link href="#contact">Contact Me</Link>
+              <PrimaryButton href="#contact" className="bg-primary hover:bg-indigo-400">
+               Contact Me
               </PrimaryButton>
             </motion.div>
           </Container>
