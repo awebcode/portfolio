@@ -7,12 +7,12 @@ import { useRouter } from "next/navigation";
 
 // Define mutually exclusive prop types
 type ButtonWithHref = {
-  href: string;
+  href?: string;
   onClick?: never; // `onClick` is not allowed if `href` is present
 };
 
 type ButtonWithOnClick = {
-  onClick: () => void;
+  onClick?: () => void;
   href?: never; // `href` is not allowed if `onClick` is present
 };
 
