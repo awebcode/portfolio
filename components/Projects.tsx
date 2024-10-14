@@ -157,6 +157,7 @@ export default function Projects() {
         {" "}
         <TitleSubtitle
           title="My Projects"
+          subTitlePosition="bottom"
           subtitle="I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites."
         />
         <Timeline data={data} />
