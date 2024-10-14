@@ -1,9 +1,6 @@
 import type { Config } from "tailwindcss";
 import svgToDataUri from "mini-svg-data-uri";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
-import defaultTheme from "tailwindcss/defaultTheme"
-
-import colors from "tailwindcss/colors"
 import customComponentsPlugin from "./public/styles/tw/custom-components";
 import customUtilitiesPlugin from "./public/styles/tw/custom-utility";
 const config: Config = {
