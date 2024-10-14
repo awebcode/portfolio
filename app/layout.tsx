@@ -2,9 +2,10 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { generateSEO, generateViewport } from "@/config/seo/seo";
+import { Toaster } from "@/components/ui/sonner";
+
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/reusables/ScrollToTop";
-import { Toaster } from "@/components/ui/sonner";
 import QueryProvider from "@/providers/QueryProvider";
 import ProgressBar from "@/components/reusables/ProgressBar";
 import ScrollLoader from "@/components/reusables/ScrollLoader";
