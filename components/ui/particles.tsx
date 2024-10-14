@@ -195,7 +195,7 @@ const Particles: React.FC<ParticlesProps> = ({
   const drawParticles = () => {
     clearContext();
     const particleCount = quantity;
-    for (const i = 0; i < particleCount; i++) {
+    for (let i = 0; i < particleCount; i++) {
       const circle = circleParams();
       drawCircle(circle);
     }
