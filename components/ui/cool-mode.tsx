@@ -46,7 +46,7 @@ const getContainer = () => {
   return container;
 };
 
-const instanceCounter = 0;
+let instanceCounter = 0;
 
 const applyParticleEffect = (
   element: HTMLElement,
@@ -59,10 +59,10 @@ const applyParticleEffect = (
   const sizes = [15, 20, 25, 35, 45];
   const limit = 45;
 
-  const particles: CoolParticle[] = [];
-  const autoAddParticle = false;
-  const mouseX = 0;
-  const mouseY = 0;
+  let particles: CoolParticle[] = [];
+  let autoAddParticle = false;
+  let mouseX = 0;
+  let mouseY = 0;
 
   const container = getContainer();
 
@@ -139,9 +139,9 @@ const applyParticleEffect = (
     });
   }
 
-  const animationFrame: number | undefined;
+  let animationFrame: number | undefined;
 
-  const lastParticleTimestamp = 0;
+  let lastParticleTimestamp = 0;
   const particleGenerationDelay = 30;
 
   function loop() {

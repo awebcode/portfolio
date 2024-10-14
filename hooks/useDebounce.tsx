@@ -26,7 +26,7 @@ export default useDebounce;
 
 // Debounce function
 export const debounce = (func: (...args: any[]) => void, delay: number) => {
-  const timeoutId: NodeJS.Timeout;
+  let timeoutId: NodeJS.Timeout;
   return (...args: any[]) => {
     if (timeoutId) {
       clearTimeout(timeoutId);
