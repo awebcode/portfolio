@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const SocialLogin = () => {
-    return (
-        <div>SocialLogin</div>
-    )
-}
+  return <div>SocialLogin</div>;
+};
 
-export default SocialLogin
+export default SocialLogin;

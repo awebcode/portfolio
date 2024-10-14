@@ -28,11 +28,7 @@ const ThemeToggle: React.FC = () => {
       whileTap={{ scale: 0.9 }}
       transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.3 }}
     >
-      {isDark ? (
-        <SunIcon className="h-5 w-5" />
-      ) : (
-        <MoonIcon className="h-5 w-5" />
-      )}
+      {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
     </motion.button>
   );
 };

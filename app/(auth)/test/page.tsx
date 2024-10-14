@@ -5,11 +5,10 @@ import React from "react";
 import Submit from "./Submit";
 
 const page = () => {
- 
   return (
     <Wrapper>
       <Container>
-        <Submit  />
+        <Submit />
       </Container>
     </Wrapper>
   );

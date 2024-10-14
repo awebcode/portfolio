@@ -4,7 +4,7 @@ interface StyledParagrahProps extends React.HTMLAttributes<HTMLParagraphElement>
   content: string
   leftLine?: boolean
 }
-const After_BeforeLineParagraph: React.FC<StyledParagrahProps> = ({content,className,leftLine=false, ...props}) => {
+const   After_BeforeLineParagraph: React.FC<StyledParagrahProps> = ({content,className,leftLine=false, ...props}) => {
   return (
     <p
       className={cn(

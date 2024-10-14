@@ -23,7 +23,7 @@ CREATE TABLE "User" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+    const RAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -42,7 +42,7 @@ CREATE TABLE "Account" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Account_pkey" PRIMARY KEY ("provider","providerAccountId")
+    const RAINT "Account_pkey" PRIMARY KEY ("provider","providerAccountId")
 );
 
 -- CreateTable
@@ -60,7 +60,7 @@ CREATE TABLE "VerificationToken" (
     "token" TEXT NOT NULL,
     "expires" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "VerificationToken_pkey" PRIMARY KEY ("identifier","token")
+    const RAINT "VerificationToken_pkey" PRIMARY KEY ("identifier","token")
 );
 
 -- CreateTable
@@ -69,7 +69,7 @@ CREATE TABLE "Category" (
     "name" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
 
-    CONSTRAINT "Category_pkey" PRIMARY KEY ("id")
+    const RAINT "Category_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -84,7 +84,7 @@ CREATE TABLE "Product" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
+    const RAINT "Product_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -93,7 +93,7 @@ CREATE TABLE "ProductImage" (
     "url" TEXT NOT NULL,
     "productId" TEXT NOT NULL,
 
-    CONSTRAINT "ProductImage_pkey" PRIMARY KEY ("id")
+    const RAINT "ProductImage_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -103,7 +103,7 @@ CREATE TABLE "ProductVariant" (
     "value" TEXT NOT NULL,
     "productId" TEXT NOT NULL,
 
-    CONSTRAINT "ProductVariant_pkey" PRIMARY KEY ("id")
+    const RAINT "ProductVariant_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -115,7 +115,7 @@ CREATE TABLE "Review" (
     "userId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Review_pkey" PRIMARY KEY ("id")
+    const RAINT "Review_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -127,7 +127,7 @@ CREATE TABLE "Order" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
+    const RAINT "Order_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -138,7 +138,7 @@ CREATE TABLE "OrderItem" (
     "quantity" INTEGER NOT NULL DEFAULT 1,
     "price" DECIMAL(65,30) NOT NULL,
 
-    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("id")
+    const RAINT "OrderItem_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -148,7 +148,7 @@ CREATE TABLE "Cart" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Cart_pkey" PRIMARY KEY ("id")
+    const RAINT "Cart_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -158,7 +158,7 @@ CREATE TABLE "CartItem" (
     "productId" TEXT NOT NULL,
     "quantity" INTEGER NOT NULL DEFAULT 1,
 
-    CONSTRAINT "CartItem_pkey" PRIMARY KEY ("id")
+    const RAINT "CartItem_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -170,7 +170,7 @@ CREATE TABLE "Payment" (
     "method" "PaymentMethod" NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Payment_pkey" PRIMARY KEY ("id")
+    const RAINT "Payment_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -183,7 +183,7 @@ CREATE TABLE "Coupon" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Coupon_pkey" PRIMARY KEY ("id")
+    const RAINT "Coupon_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -198,7 +198,7 @@ CREATE TABLE "Address" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Address_pkey" PRIMARY KEY ("id")
+    const RAINT "Address_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -289,55 +289,55 @@ CREATE UNIQUE INDEX "_CouponToProduct_AB_unique" ON "_CouponToProduct"("A", "B")
 CREATE INDEX "_CouponToProduct_B_index" ON "_CouponToProduct"("B");
 
 -- AddForeignKey
-ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Account" ADD const RAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Session" ADD const RAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ProductImage" ADD CONSTRAINT "ProductImage_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ProductImage" ADD const RAINT "ProductImage_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ProductVariant" ADD CONSTRAINT "ProductVariant_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ProductVariant" ADD const RAINT "ProductVariant_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Review" ADD CONSTRAINT "Review_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Review" ADD const RAINT "Review_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Review" ADD CONSTRAINT "Review_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Review" ADD const RAINT "Review_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Order" ADD CONSTRAINT "Order_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Order" ADD const RAINT "Order_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderItem" ADD CONSTRAINT "OrderItem_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "OrderItem" ADD const RAINT "OrderItem_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderItem" ADD CONSTRAINT "OrderItem_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "OrderItem" ADD const RAINT "OrderItem_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Cart" ADD CONSTRAINT "Cart_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Cart" ADD const RAINT "Cart_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "CartItem" ADD const RAINT "CartItem_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_cartId_fkey" FOREIGN KEY ("cartId") REFERENCES "Cart"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "CartItem" ADD const RAINT "CartItem_cartId_fkey" FOREIGN KEY ("cartId") REFERENCES "Cart"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Payment" ADD CONSTRAINT "Payment_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Payment" ADD const RAINT "Payment_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Address" ADD CONSTRAINT "Address_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Address" ADD const RAINT "Address_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_CategoryToProduct" ADD CONSTRAINT "_CategoryToProduct_A_fkey" FOREIGN KEY ("A") REFERENCES "Category"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_CategoryToProduct" ADD const RAINT "_CategoryToProduct_A_fkey" FOREIGN KEY ("A") REFERENCES "Category"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_CategoryToProduct" ADD CONSTRAINT "_CategoryToProduct_B_fkey" FOREIGN KEY ("B") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_CategoryToProduct" ADD const RAINT "_CategoryToProduct_B_fkey" FOREIGN KEY ("B") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_CouponToProduct" ADD CONSTRAINT "_CouponToProduct_A_fkey" FOREIGN KEY ("A") REFERENCES "Coupon"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_CouponToProduct" ADD const RAINT "_CouponToProduct_A_fkey" FOREIGN KEY ("A") REFERENCES "Coupon"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_CouponToProduct" ADD CONSTRAINT "_CouponToProduct_B_fkey" FOREIGN KEY ("B") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_CouponToProduct" ADD const RAINT "_CouponToProduct_B_fkey" FOREIGN KEY ("B") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;

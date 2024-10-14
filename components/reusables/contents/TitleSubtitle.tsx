@@ -8,7 +8,12 @@ interface TitleSubtitleProps extends React.HTMLAttributes<HTMLDivElement> {
   leftLine?: boolean;
 }
 
-const TitleSubtitle: React.FC<TitleSubtitleProps> = ({ title, subtitle,leftLine=false, ...props }) => {
+const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
+  title,
+  subtitle,
+  leftLine = false,
+  ...props
+}) => {
   return (
     <div className="text-left my-2 p-2" {...props}>
       <p
@@ -21,7 +26,9 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({ title, subtitle,leftLine=
       >
         {subtitle}
       </p>
-      <h1 className="text-3xl md:text-4xl font-thin text-black/80 dark:text-neutral-200 ">{title}</h1>
+      <h1 className="text-3xl md:text-4xl font-thin text-black/80 dark:text-neutral-200 ">
+        {title}
+      </h1>
     </div>
   );
 };

@@ -1,11 +1,12 @@
-import dynamic from 'next/dynamic'
-import React from 'react'
-const RegisterForm = dynamic(() => import('./components/Form'), { ssr: false })
+import dynamic from "next/dynamic";
+import React from "react";
+const RegisterForm = dynamic(() => import("./components/Form"), { ssr: false });
 const page = () => {
-    
-    return (
-        <><RegisterForm /></>
-    )
-}
+  return (
+    <>
+      <RegisterForm />
+    </>
+  );
+};
 
-export default page
+export default page;

@@ -25,14 +25,14 @@
 //     SelectTrigger,
 //     SelectValue,
 // } from "@/components/ui/select"
-// const Tiptap = () => {
-//     const [openEmoji, setOpenEmoji] = useState(false)
-//     const fileInputRef = useRef<HTMLInputElement>(null);
-//     const emojiRef = useRef<HTMLButtonElement>(null);
+// const   Tiptap = () => {
+//     const   [openEmoji, setOpenEmoji] = useState(false)
+//     const   fileInputRef = useRef<HTMLInputElement>(null);
+//     const   emojiRef = useRef<HTMLButtonElement>(null);
 //     useClickOnOutside(emojiRef, () => setOpenEmoji(false),);
 
 //     // Define editor with extensions
-//     const editor = useEditor({
+//     const   editor = useEditor({
 //         extensions: [
 //             StarterKit,
 //             Paragraph,
@@ -56,10 +56,10 @@
 //     })
 
 //     // Function to add an image to the editor
-//     const addImage = (file: File) => {
-//         const reader = new FileReader()
+//     const   addImage = (file: File) => {
+//         const   reader = new FileReader()
 //         reader.onload = () => {
-//             const url = reader.result as string
+//             const   url = reader.result as string
 //             editor?.chain().focus().setImage({ src: url }).run()
 //         }
 //         reader.readAsDataURL(file)
@@ -125,7 +125,7 @@
 //                         style={{ display: 'none' }}
 //                         accept="image/*"
 //                         onChange={(event) => {
-//                             const file = event.target.files?.[0]
+//                             const   file = event.target.files?.[0]
 //                             if (file) {
 //                                 addImage(file)
 //                             }
@@ -141,8 +141,8 @@
 
 // export default Tiptap
 
-// const HighlighterCompoent = ({ editor }: EditorContentProps) => {
-//     const colors = ['yellow', 'red', 'green', 'blue', 'purple', 'black']
+// const   HighlighterCompoent = ({ editor }: EditorContentProps) => {
+//     const   colors = ['yellow', 'red', 'green', 'blue', 'purple', 'black']
 //     return (
 //         <>
 //             <Select onValueChange={(value) => editor?.chain().focus().setHighlight({ color: value }).run()}>
@@ -169,9 +169,8 @@
 //     )
 // }
 
-
-// const HeadingComponent = ({ editor }: EditorContentProps) => {
-//     const headings = [
+// const   HeadingComponent = ({ editor }: EditorContentProps) => {
+//     const   headings = [
 //         { elem: 1, icon: <Heading1 /> },
 //         { elem: 2, icon: <Heading2Icon /> },
 //         { elem: 3, icon: <Heading3 /> },

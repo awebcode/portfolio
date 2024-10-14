@@ -16,7 +16,7 @@ export const userSchema = z.object({
     })
     .nonempty("Password cannot be empty")
     .min(8, "Password must be at least 8 characters long"),
-  confirmPassword: z.string().min(1,"Confirm Password cannot be empty").optional(), // Optional unless used in registerSchema
+  confirmPassword: z.string().min(1, "Confirm Password cannot be empty").optional(), // Optional unless used in registerSchema
   name: z.string().min(3, "Name must be at least 3 characters long"),
   emailVerified: z.date().nullable().optional(),
   image: z.string().nullable().optional(),

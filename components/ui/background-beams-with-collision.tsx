@@ -139,8 +139,7 @@ const CollisionMechanism = React.forwardRef<
         const parentRect = parentRef.current.getBoundingClientRect();
 
         if (beamRect.bottom >= containerRect.top) {
-          const relativeX =
-            beamRect.left - parentRect.left + beamRect.width / 2;
+          const relativeX = beamRect.left - parentRect.left + beamRect.width / 2;
           const relativeY = beamRect.bottom - parentRect.top;
 
           setCollision({

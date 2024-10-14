@@ -12,37 +12,40 @@ import FloatingNavbar from "../components/header/Header";
 // In app directory
 // import { ArticleJsonLd, DefaultSeo } from "next-seo";
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "700", "900"], variable: "--font-poppins" });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-poppins",
+});
 // setup SEO
 export const viewport = generateViewport({});
 // setup SEO
-export const metadata = generateSEO({})
+export const metadata = generateSEO({});
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} ${poppins.variable}  min-h-screen flex justify-around flex-col gap-4 `}>
+      <body
+        className={`${poppins.className} ${poppins.variable}  min-h-screen flex justify-around flex-col gap-4 `}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange>
+          disableTransitionOnChange
+        >
           <QueryProvider>
-
             <FloatingNavbar />
 
-            <main className="flex-grow">
-              {children}
-            </main>
+            <main className="flex-grow">{children}</main>
             <footer>
               <Footer />
             </footer>
           </QueryProvider>
-          <Toaster toastOptions={{ duration: 3000, }} theme="light" />
+          <Toaster toastOptions={{ duration: 3000 }} theme="light" />
           <ScrollToTop />
 
           {/* when user will scrolling in the page it will show the loader */}

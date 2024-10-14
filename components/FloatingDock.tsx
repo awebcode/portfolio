@@ -6,7 +6,7 @@ import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {CoolMode} from "@/components/ui/cool-mode";
+import { CoolMode } from "@/components/ui/cool-mode";
 import {
   Tooltip,
   TooltipContent,

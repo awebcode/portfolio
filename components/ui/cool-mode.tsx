@@ -28,7 +28,7 @@ export interface CoolParticleOptions extends BaseParticleOptions {
 
 const getContainer = () => {
   const id = "_coolMode_effect";
-  let existingContainer = document.getElementById(id);
+  const existingContainer = document.getElementById(id);
 
   if (existingContainer) {
     return existingContainer;
@@ -38,7 +38,7 @@ const getContainer = () => {
   container.setAttribute("id", id);
   container.setAttribute(
     "style",
-    "overflow:hidden; position:fixed; height:100%; top:0; left:0; right:0; bottom:0; pointer-events:none; z-index:2147483647",
+    "overflow:hidden; position:fixed; height:100%; top:0; left:0; right:0; bottom:0; pointer-events:none; z-index:2147483647"
   );
 
   document.body.appendChild(container);
@@ -46,11 +46,11 @@ const getContainer = () => {
   return container;
 };
 
-let instanceCounter = 0;
+const instanceCounter = 0;
 
 const applyParticleEffect = (
   element: HTMLElement,
-  options?: CoolParticleOptions,
+  options?: CoolParticleOptions
 ): (() => void) => {
   instanceCounter++;
 
@@ -59,16 +59,15 @@ const applyParticleEffect = (
   const sizes = [15, 20, 25, 35, 45];
   const limit = 45;
 
-  let particles: CoolParticle[] = [];
-  let autoAddParticle = false;
-  let mouseX = 0;
-  let mouseY = 0;
+  const particles: CoolParticle[] = [];
+  const autoAddParticle = false;
+  const mouseX = 0;
+  const mouseY = 0;
 
   const container = getContainer();
 
   function generateParticle() {
-    const size =
-      options?.size || sizes[Math.floor(Math.random() * sizes.length)];
+    const size = options?.size || sizes[Math.floor(Math.random() * sizes.length)];
     const speedHorz = options?.speedHorz || Math.random() * 10;
     const speedUp = options?.speedUp || Math.random() * 25;
     const spinVal = Math.random() * 360;
@@ -86,11 +85,7 @@ const applyParticleEffect = (
       circle.setAttributeNS(null, "cx", (size / 2).toString());
       circle.setAttributeNS(null, "cy", (size / 2).toString());
       circle.setAttributeNS(null, "r", (size / 2).toString());
-      circle.setAttributeNS(
-        null,
-        "fill",
-        `hsl(${Math.random() * 360}, 70%, 50%)`,
-      );
+      circle.setAttributeNS(null, "fill", `hsl(${Math.random() * 360}, 70%, 50%)`);
 
       circleSVG.appendChild(circle);
       circleSVG.setAttribute("width", size.toString());
@@ -126,10 +121,7 @@ const applyParticleEffect = (
       p.speedUp = Math.min(p.size, p.speedUp - 1);
       p.spinVal = p.spinVal + p.spinSpeed;
 
-      if (
-        p.top >=
-        Math.max(window.innerHeight, document.body.clientHeight) + p.size
-      ) {
+      if (p.top >= Math.max(window.innerHeight, document.body.clientHeight) + p.size) {
         particles = particles.filter((o) => o !== p);
         p.element.remove();
       }
@@ -142,14 +134,14 @@ const applyParticleEffect = (
           `top:${p.top}px`,
           `left:${p.left}px`,
           `transform:rotate(${p.spinVal}deg)`,
-        ].join(";"),
+        ].join(";")
       );
     });
   }
 
-  let animationFrame: number | undefined;
+  const animationFrame: number | undefined;
 
-  let lastParticleTimestamp = 0;
+  const lastParticleTimestamp = 0;
   const particleGenerationDelay = 30;
 
   function loop() {

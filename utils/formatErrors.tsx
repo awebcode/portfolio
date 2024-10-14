@@ -19,7 +19,7 @@ export const formatErrorsForToast = (errors: Record<string, string>[]): string =
     .map((err) =>
       Object.entries(err)
         .map(([key, value]) => `${key}: ${value}`)
-        .join(', ')
+        .join(", ")
     )
-    .join('; ');
+    .join("; ");
 };
