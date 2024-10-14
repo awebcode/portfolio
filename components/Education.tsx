@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
+import Container from "./reusables/contents/Container";
+import Wrapper from "./reusables/contents/Wrapper";
 import BlurFade from "@/components/ui/blur-fade";
-import Link from "next/link";
 import { DATA } from "./data/DATA";
-import { ResumeCard } from './ResumeCard';
+import { ResumeCard } from "./ResumeCard";
 const BLUR_FADE_DELAY = 0.04;
 const Education = () => {
   return (
-    <div>
-      {" "}
-      <section id="education">
+    <Wrapper id="education" className="bg-white dark:bg-black">
+      <Container>
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Education</h2>
@@ -27,9 +27,9 @@ const Education = () => {
             </BlurFade>
           ))}
         </div>
-      </section>
-    </div>
+      </Container>
+    </Wrapper>
   );
-}
+};
 
-export default Education
+export default Education;

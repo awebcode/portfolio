@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import TitleSubtitle from "./reusables/contents/TitleSubtitle";
+import Wrapper from "./reusables/contents/Wrapper";
+import Container from "./reusables/contents/Container";
 
 export default function Projects() {
   const data = [
@@ -150,12 +152,15 @@ export default function Projects() {
     },
   ];
   return (
-    <div className="w-full">
-      <TitleSubtitle
-        title="My Projects"
-        subtitle="I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites."
-      />
-      <Timeline data={data} />
-    </div>
+    <Wrapper className="w-full">
+      <Container>
+        {" "}
+        <TitleSubtitle
+          title="My Projects"
+          subtitle="I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites."
+        />
+        <Timeline data={data} />
+      </Container>
+    </Wrapper>
   );
 }

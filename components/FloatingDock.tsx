@@ -96,8 +96,8 @@ const DATA = {
 
 export default function FloatingDockButtons() {
   return (
-    <div className="fixed bottom-20 w-full flex-col items-center justify-center overflow-hidden rounded-lg   md:shadow-xl">
-      <TooltipProvider>
+    <div className="z-50 fixed bottom-10 w-full flex-col items-center justify-center overflow-hidden rounded-lg  ">
+      <TooltipProvider delayDuration={0}>
         <Dock direction="middle">
           {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
