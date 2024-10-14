@@ -80,7 +80,8 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   }, [data, theme]);
 
   return (
-    // @ts-expect-error
+    // @ts-expect-error: type mismatch
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     <Cloud {...cloudProps}>
       <>{renderedIcons}</>
     </Cloud>
