@@ -18,8 +18,8 @@ const config: Config = {
   },
   theme: {
     extend: {
-      container: {
-        center: "true",
+		  container: {
+		center: true,
         padding: {
           DEFAULT: "1rem",
           sm: "2rem",
