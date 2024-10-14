@@ -6,6 +6,7 @@ import Container from "./reusables/contents/Container";
 import PrimaryButton from "./reusables/buttons/PrimaryButton";
 import Link from "next/link";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import GoToArrowDown from "./reusables/contents/GoToArrowDown";
 export default function Hero() {
     return (
       <BackgroundBeamsWithCollision className="h-auto">
@@ -48,6 +49,7 @@ export default function Hero() {
             </motion.div>
           </Container>
         </HeroHighlight>
+        <GoToArrowDown to="contact"  />
       </BackgroundBeamsWithCollision>
     );
 }
