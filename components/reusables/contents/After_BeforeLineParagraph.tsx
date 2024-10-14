@@ -20,4 +20,4 @@ const   After_BeforeLineParagraph: React.FC<StyledParagrahProps> = ({content,cla
   );
 }
 
-export After_BeforeLineParagraph
+export default After_BeforeLineParagraph
