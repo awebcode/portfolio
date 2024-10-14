@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
+import { FiFacebook } from "react-icons/fi";
 
 export const DATA = {
   name: "Dillion Verma",
@@ -30,41 +31,47 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "asikurrahaman997@gmail.com",
+    tel: "+8801893585782",
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/awebcode",
         icon: Icons.github,
 
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/awebcode/",
         icon: Icons.linkedin,
 
         navbar: true,
       },
       X: {
         name: "X",
-        url: "https://dub.sh/dillion-twitter",
+        url: "https://twitter.com/awebcode",
         icon: Icons.x,
 
         navbar: true,
       },
       Youtube: {
         name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
+        url: "https://youtube.com/awebcode",
         icon: Icons.youtube,
         navbar: true,
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:asikurrahaman997@gmail.com",
         icon: Icons.email,
 
+        navbar: false,
+      },
+      facebook: {
+        name: "Facebook",
+        url: "https://facebook.com/awebcodee",
+        icon: FiFacebook,
         navbar: false,
       },
     },
