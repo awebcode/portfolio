@@ -1,7 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../providers/ThemeProvider";
-import { generateSEO, generateViewport } from "@/app/config/seo/seo";
+import { generateSEO, generateViewport } from "@/config/seo/seo";
 import { Toaster } from "@/components/ui/sonner";
 
 import Footer from "../components/Footer";
