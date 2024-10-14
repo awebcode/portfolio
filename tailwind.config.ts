@@ -1,11 +1,13 @@
 import type { Config } from "tailwindcss";
 import svgToDataUri from "mini-svg-data-uri";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+import defaultTheme from "tailwindcss/defaultTheme"
 
+import colors from "tailwindcss/colors"
 import customComponentsPlugin from "./public/styles/tw/custom-components";
 import customUtilitiesPlugin from "./public/styles/tw/custom-utility";
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: {
     files: [
       "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,7 +19,7 @@ const config: Config = {
   theme: {
     extend: {
       container: {
-        center: true,
+        center: "true",
         padding: {
           DEFAULT: "1rem",
           sm: "2rem",
@@ -83,13 +85,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-
       boxShadow: {
-        100: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD",
-        200: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 4px 10px #3391FF",
-        300: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD",
-        400: "inset 0px 2px 4px 0 rgba(255, 255, 255, 0.05)",
-        500: "0px 16px 24px rgba(0, 0, 0, 0.25), 0px -14px 48px rgba(40, 51, 111, 0.7)",
+        input:
+          "`0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
@@ -99,6 +97,16 @@ const config: Config = {
         borderColor: "border-color",
       },
       spacing: {
+        "22": "88px",
+        "100": "100px",
+        "330": "330px",
+        "388": "388px",
+        "400": "400px",
+        "440": "440px",
+        "512": "512px",
+        "640": "640px",
+        "960": "960px",
+        "1230": "1230px",
         "1/5": "20%",
         "2/5": "40%",
         "3/5": "60%",
@@ -111,37 +119,29 @@ const config: Config = {
         "15/20": "75%",
         "17/20": "85%",
         "19/20": "95%",
-        22: "88px",
-        100: "100px",
-        512: "512px",
-        330: "330px",
-        388: "388px",
-        400: "400px",
-        440: "440px",
-        640: "640px",
-        960: "960px",
-        1230: "1230px",
       },
       zIndex: {
-        1: "1",
-        2: "2",
-        4: "4",
+        "1": "1",
+        "2": "2",
+        "4": "4",
       },
       lineHeight: {
-        12: "48px",
+        "12": "48px",
       },
-
       flex: {
-        50: "0 0 50%",
-        320: "1px 0 320px",
-        300: "0 0 300px",
-        540: "0 0 540px",
-        280: "0 0 280px",
-        256: "0 0 256px",
-        100: "0 0 100%",
+        "50": "0 0 50%",
+        "100": "0 0 100%",
+        "256": "0 0 256px",
+        "280": "0 0 280px",
+        "300": "0 0 300px",
+        "320": "1px 0 320px",
+        "540": "0 0 540px",
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
+        marquee: "marquee var(--duration) infinite linear",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       keyframes: {
         aurora: {
@@ -150,6 +150,32 @@ const config: Config = {
           },
           to: {
             backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+        spotlight: {
+          "0%": {
+            opacity: "0",
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
+        marquee: {
+          from: {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(calc(-100% - var(--gap)))",
+          },
+        },
+        "marquee-vertical": {
+          from: {
+            transform: "translateY(0)",
+          },
+          to: {
+            transform: "translateY(calc(-100% - var(--gap)))",
           },
         },
       },
@@ -182,14 +208,14 @@ const config: Config = {
 };
 
 function addVariablesForColors({ addBase, theme }: any) {
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
+ const allColors = flattenColorPalette(theme("colors"));
+ const newVars = Object.fromEntries(
+   Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+ );
 
-  addBase({
-    ":root": newVars,
-  });
+ addBase({
+   ":root": newVars,
+ });
 }
 
 export default config;

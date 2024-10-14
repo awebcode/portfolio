@@ -1,16 +1,17 @@
 import AboutMe from "@/components/AboutMe";
-import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import FloatingDockButtons from "@/components/FloatingDock";
+import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import React from "react";
+import Testimonials from "@/components/Testimonials";
 
 const page = () => {
   return (
-    <div className="mx-auto w-full  space-y-8">
+    <div className="mx-auto w-full ">
       {/* max-w-2xl */}
       <Hero />
       <AboutMe />
@@ -19,7 +20,8 @@ const page = () => {
       <FloatingDockButtons />
       <Skills />
       <Projects />
-      <Contact />
+      <Testimonials />
+      <ContactForm />
     </div>
   );
 };

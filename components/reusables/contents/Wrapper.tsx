@@ -7,7 +7,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children, className = "", ...props })
   return (
     <section
       className={cn(
-        `py-6  md:py-10 min-h-screen flex justify-center items-center`,
+        `py-4  md:py-6  flex justify-center items-center`,
         className
       )}
       {...props}

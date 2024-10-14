@@ -35,7 +35,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
           {subtitle}
         </p>
       )}
-      <h1 className="text-3xl md:text-5xl font-thin text-black/80 dark:text-neutral-200 ">
+      <h1 className="text-3xl md:text-5xl my-2 font-thin text-black dark:text-white  ">
         {title}
       </h1>
       {subTitlePosition === "bottom" && (

@@ -34,6 +34,19 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+
+      {
+        protocol: "https",
+        hostname: "avatar.vercel.sh",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

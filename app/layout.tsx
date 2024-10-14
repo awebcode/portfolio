@@ -1,4 +1,4 @@
-import { Poppins } from "next/font/google";
+import {Josefin_Sans,Open_Sans,Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { generateSEO, generateViewport } from "@/config/seo/seo";
@@ -17,6 +17,17 @@ const poppins = Poppins({
   weight: ["400", "500", "700", "900"],
   variable: "--font-poppins",
 });
+
+const josefin = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-josefin"
+});
+const opensans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-opensans"
+})
 // setup SEO
 export const viewport = generateViewport({});
 // setup SEO
@@ -29,11 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.className} ${poppins.variable} bg-background  min-h-screen flex justify-around flex-col gap-4 `}
+        className={`${poppins.className, josefin.className, opensans.className} ${poppins.variable, josefin.variable, opensans.variable} bg-background  min-h-screen flex justify-around flex-col gap-4 `}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

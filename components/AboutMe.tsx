@@ -6,28 +6,26 @@ import Container from "./reusables/contents/Container";
 import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collision";
 import { HeroHighlight } from "./ui/hero-highlight";
 import TitleSubtitle from "./reusables/contents/TitleSubtitle";
+import { Spotlight } from "./ui/spotlight";
+import BlurFade from "./ui/blur-fade";
 
 export default function About() {
   return (
-    <BackgroundBeamsWithCollision className="h-auto">
-      <HeroHighlight containerClassName="bg-white dark:bg-black ">
+    <BackgroundBeamsWithCollision className="h-full">
+      <Spotlight className="-top-40 left-0 md:left-32 md:-top-20" fill="white" />
+      <HeroHighlight containerClassName="bg-white dark:bg-black h-full ">
         <Container className="flex flex-col md:flex-row items-center md:items-start gap-10 mt-10">
           {/* Left Section - About Me Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="md:w-1/2"
-          >
+
+          <BlurFade inView delay={0.5} className="md:w-1/2">
             <TitleSubtitle title="About Me" subtitle="Get to know me" />
             <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-4 leading-relaxed">
               I’m Asikur Rahman, a full-stack developer with a passion for solving
               problems and building scalable web applications. My expertise spans both
               frontend and backend, including technologies like{" "}
               <span className="font-semibold text-primary">Next.js</span>,
-              <span className="font-semibold text-primary">React</span>,{" "}
               <span className="font-semibold text-primary">Express</span>,{" "}
-              <span className="font-semibold text-primary">Nest.js</span>, and{" "}
+              <span className="font-semibold text-primary">Socket.io</span>, and{" "}
               <span className="font-semibold text-primary">TypeScript</span>.
             </p>
             <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-4 leading-relaxed">
@@ -44,7 +42,7 @@ export default function About() {
               ahead in the industry. My goal is to build impactful applications that solve
               real-world problems.
             </p>
-          </motion.div>
+          </BlurFade>
 
           {/* Right Section - Profile Image */}
           <motion.div
@@ -53,13 +51,15 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="md:w-1/2 flex justify-center"
           >
-            <Image
-              src="/images/hero.png"
-              alt="Asikur Rahman"
-              width={1000}
-              height={1000}
-              className="rounded-lg  object-cover"
-            />
+            <BlurFade inView delay={0.5}>
+              <Image
+                src="/images/hero.png"
+                alt="Asikur Rahman"
+                width={1000}
+                height={1000}
+                className="rounded-lg  object-cover"
+              />
+            </BlurFade>
           </motion.div>
         </Container>
       </HeroHighlight>

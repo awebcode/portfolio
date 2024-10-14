@@ -7,7 +7,7 @@ import Wrapper from "./reusables/contents/Wrapper";
 const BLUR_FADE_DELAY = 0.04;
 const Experience = () => {
   return (
-    <Wrapper id="work" className="bg-white dark:bg-black">
+    <Wrapper id="work" >
       <Container>
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>

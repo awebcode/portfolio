@@ -7,7 +7,7 @@ import { ResumeCard } from "./ResumeCard";
 const BLUR_FADE_DELAY = 0.04;
 const Education = () => {
   return (
-    <Wrapper id="education" className="bg-white dark:bg-black">
+    <Wrapper id="education" >
       <Container>
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>

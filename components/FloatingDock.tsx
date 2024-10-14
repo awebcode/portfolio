@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import { CalendarIcon,  HomeIcon, MailIcon, MenuIcon, PencilIcon, TrashIcon } from "lucide-react";
 
 import { cn } from "@/utils/cn";
 import { buttonVariants } from "@/components/ui/button";
@@ -95,10 +95,16 @@ const DATA = {
 };
 
 export default function FloatingDockButtons() {
+  const [isHidden,setIsHidden] = useState(false)
   return (
-    <div className="z-50 fixed bottom-10 w-full flex-col items-center justify-center overflow-hidden rounded-lg  ">
+    <div className={`${isHidden ? "hidden" : "block"} z-50 fixed bottom-10 left-1/2 -translate-x-1/2  w-full mx-auto md:w-full flex-col items-center justify-center overflow-hidden rounded-lg  `}>
       <TooltipProvider delayDuration={0}>
-        <Dock direction="middle">
+        <Dock direction="middle" className="relative">
+          <div title="Close Dock" onClick={() => setIsHidden(true)} className="cursor-pointer absolute right-2 -top-2  p-1 bg-emerald-100 rounded-full">
+            {" "}
+            <TrashIcon  className="h-4 w-4 text-emerald-500 hover:scale-105"  />
+          </div>
+
           {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>
@@ -109,10 +115,10 @@ export default function FloatingDockButtons() {
                       aria-label={item.label}
                       className={cn(
                         buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
+                        "size-8 md:size-12 rounded-full"
                       )}
                     >
-                      <item.icon className="size-4" />
+                      <item.icon className="size-3 md:size-4" />
                     </Link>
                   </CoolMode>
                 </TooltipTrigger>
@@ -133,10 +139,10 @@ export default function FloatingDockButtons() {
                       aria-label={social.name}
                       className={cn(
                         buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
+                        "size-8 md:size-12 rounded-full"
                       )}
                     >
-                      <social.icon className="size-4" />
+                      <social.icon className="size-3 md:size-4" />
                     </Link>
                   </CoolMode>
                 </TooltipTrigger>
