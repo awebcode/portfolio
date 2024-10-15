@@ -9,6 +9,7 @@ import { useEffect,  useState } from "react";
 import { FaReact, FaNodeJs,FaDocker } from "react-icons/fa";
 import {IoDocumentTextOutline,IoKeyOutline} from "react-icons/io5"
 import {PiStack} from "react-icons/pi"
+import { Meteors } from "./ui/meteors";
 const iconSlugs: DynamicCloudProps["iconSlugs"] = [
   "typescript",
   "javascript",
@@ -136,9 +137,11 @@ export default function Skills() {
   return (
     <Wrapper id="skills">
       <Container className=" mx-auto">
-        <TitleSubtitle title="Skills" subtitle="I have experience with" />
+        <TitleSubtitle title="Skills" subtitle="I have experienced with." />
 
         {/* Icon cloud for visual appeal */}
+        {/* <Meteors number={12} /> */}
+
         <IconCloud iconSlugs={iconSlugs} />
 
         {/* Render each technology category */}

@@ -142,6 +142,7 @@ const config: Config = {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         marquee: "marquee var(--duration) infinite linear",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+        "meteor-effect": "meteor 5s linear infinite",
       },
       keyframes: {
         aurora: {
@@ -178,6 +179,15 @@ const config: Config = {
             transform: "translateY(calc(-100% - var(--gap)))",
           },
         },
+         meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        
       },
     },
   },

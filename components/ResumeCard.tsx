@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { Meteors } from "./ui/meteors";
 
 interface ResumeCardProps {
   logoUrl: string;
@@ -39,7 +40,7 @@ export const ResumeCard = ({
   };
 
   return (
-    <Link href={href || "#"} className="cursor-pointer "  onClick={handleClick}>
+    <Link href={href || "#"} className="cursor-pointer " onClick={handleClick}>
       <Card className="flex items-center px-4">
         <div className="">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
@@ -97,6 +98,8 @@ export const ResumeCard = ({
           )}
         </div>
       </Card>
+      {/* Meaty part - Meteor effect */}
+      {/* <Meteors number={12} /> */}
     </Link>
   );
 };

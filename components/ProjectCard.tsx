@@ -14,6 +14,7 @@ import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
 import { toast } from "sonner";
+import { Meteors } from "./ui/meteors";
 
 interface Props {
   title: string;
@@ -152,6 +153,8 @@ export default function ProjectCard({
           </div>
         )}
       </CardFooter>
+      {/* Meaty part - Meteor effect */}
+      <Meteors number={6} />
     </Card>
   );
 }

@@ -7,6 +7,7 @@ import PrimaryButton from "./reusables/buttons/PrimaryButton";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import GoToArrowDown from "./reusables/contents/GoToArrowDown";
 import { Spotlight } from "./ui/spotlight";
+import { Cover } from "./ui/cover";
 
 export default function Hero() {
   return (
@@ -21,7 +22,8 @@ export default function Hero() {
             className="text-center font-opensans text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
           >
             <span className="font-syncopate"> Hi, I’m </span>
-            <span className="text-primary ">Asikur Rahman</span>.
+              <Cover>Asikur Rahman </Cover>
+            .
           </motion.h1>
 
           <motion.p
