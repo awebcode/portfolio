@@ -36,7 +36,7 @@ const GoToArrowDown: React.FC<GoToArrowDownProps> = ({
       whileHover={{ scale: 1.1 }} // Add hover effect
       whileTap={{ scale: 0.95 }} // Add click animation
       className={cn(
-        "inline cursor-pointer absolute bottom-4 left-1/2 py-3 px-2 ring-1 ring-primary rounded-full bg-white/80 text-primary hover:bg-primary hover:text-white ",
+        "inline cursor-pointer absolute bottom-4 left-1/2 py-3 px-2 ring-1 ring-primary rounded-full bg-white/80 dark:bg-neutral-800 text-primary hover:bg-primary hover:text-white ",
         className
       )}
       {...props}

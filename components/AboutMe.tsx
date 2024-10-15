@@ -8,12 +8,14 @@ import { HeroHighlight } from "./ui/hero-highlight";
 import TitleSubtitle from "./reusables/contents/TitleSubtitle";
 import { Spotlight } from "./ui/spotlight";
 import BlurFade from "./ui/blur-fade";
+import Wrapper from "./reusables/contents/Wrapper";
 
 export default function About() {
   return (
-    <BackgroundBeamsWithCollision className="h-full">
-      <Spotlight className="-top-40 left-0 md:left-32 md:-top-20" fill="white" />
-      <HeroHighlight containerClassName="bg-white dark:bg-black h-full ">
+    <Wrapper id="about">
+    <BackgroundBeamsWithCollision className=" min-h-screen h-full">
+      <Spotlight className="-top-10 left-10 md:left-32 md:-top-20" fill="white" />
+      <HeroHighlight containerClassName="bg-white dark:bg-black  min-h-screen h-full py-10 ">
         <Container className="flex flex-col md:flex-row items-center md:items-start gap-10 mt-10">
           {/* Left Section - About Me Text */}
 
@@ -21,7 +23,7 @@ export default function About() {
             <TitleSubtitle
               title={
                 <>
-                   <span className="text-primary">About </span> Me
+                  <span className="text-primary">About </span> Me
                 </>
               }
               subtitle="Get to know me"
@@ -71,5 +73,6 @@ export default function About() {
         </Container>
       </HeroHighlight>
     </BackgroundBeamsWithCollision>
+    </Wrapper>
   );
 }

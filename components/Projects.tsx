@@ -11,13 +11,15 @@ import type { Link as LinkType, Project } from "@prisma/client";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { DATA } from "./data/DATA";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const BLUR_FADE_DELAY = 0.1;
 type ProjectWithLinks = Project & {
   links: LinkType[];
 };
 const Projects = () => {
-  const INITIAL_ITEMS_COUNT = 9;
+  const isMobile=useMediaQuery("(max-width: 768px)");
+  const INITIAL_ITEMS_COUNT =isMobile? 4 : 9;
   const [visibleCount, setVisibleCount] = useState(INITIAL_ITEMS_COUNT);
   const [showAll, setShowAll] = useState(false);
   const [items, setItems] = useState<ProjectWithLinks[]>(DATA.projects as any); // Initialize items as an empty array
@@ -67,7 +69,7 @@ const Projects = () => {
 
   return (
     <Wrapper id="projects" className="">
-      <Container className="max-w-[1200px] mx-auto">
+      <Container className=" mx-auto">
         <Link
           href="/project/new/create"
           className="group flex items-center justify-end text-right gap-2 text-primary hover:underline"
@@ -75,7 +77,7 @@ const Projects = () => {
           <span> Create New</span>{" "}
           <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
         </Link>
-        <div className="my-4">
+        <div className="my-8">
           <TitleSubtitle
             subTitlePosition="bottom"
             title={

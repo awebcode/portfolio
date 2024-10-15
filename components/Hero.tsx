@@ -10,9 +10,9 @@ import { Spotlight } from "./ui/spotlight";
 
 export default function Hero() {
   return (
-    <BackgroundBeamsWithCollision className="relative h-full">
-      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
-      <HeroHighlight containerClassName=" bg-white dark:bg-black shadow-none h-full">
+    <BackgroundBeamsWithCollision className="relative min-h-screen h-full">
+      <Spotlight className="top-14 left-10 md:left-52 md:-top-20 " fill="white" />
+      <HeroHighlight containerClassName=" bg-white dark:bg-black shadow-none min-h-screen h-full py-10">
         <Container>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ export default function Hero() {
           </motion.div>
         </Container>
       </HeroHighlight>
-      <GoToArrowDown to="contact" className="hidden md:block" />
+      <GoToArrowDown to="about" className="block" />
     </BackgroundBeamsWithCollision>
   );
 }

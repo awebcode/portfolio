@@ -6,6 +6,7 @@ import Image from "next/image";
 import Wrapper from "./reusables/contents/Wrapper";
 import { faker } from "@faker-js/faker";
 import { positiveReviews } from "./data/DATA";
+import Container from "./reusables/contents/Container";
 
 interface Review {
   name: string;
@@ -59,16 +60,19 @@ const ReviewCard = ({ img, name, username, body }: Review) => {
 export default function Testimonials() {
   return (
     <Wrapper>
-      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border">
-        <TitleSubtitle
-          subTitlePosition="bottom"
-          title={
-            <>
-              What People <span className="text-primary">Are Saying?</span>
-            </>
-          }
-          subtitle="Building trust through collaboration and delivering exceptional results."
-        />
+      <div className="relative flex h-[500px] w-full flex-col  justify-center overflow-hidden rounded-lg border">
+        <Container>
+          {" "}
+          <TitleSubtitle
+            subTitlePosition="bottom"
+            title={
+              <>
+                What People <span className="text-primary">Are Saying?</span>
+              </>
+            }
+            subtitle="Building trust through collaboration and delivering exceptional results."
+          />
+        </Container>
 
         <Marquee className="[--duration:30s]">
           {firstRow.map((review) => (

@@ -36,7 +36,33 @@ const iconSlugs: DynamicCloudProps["iconSlugs"] = [
   "androidstudio",
   "figma",
   "zod",
+  "graphql", // GraphQL for APIs
+  "vuejs", // Vue.js framework
+  "svelte", // Svelte framework
+  "redux", // State management library
+  "axios", // Promise-based HTTP client
+  "webpack", // Module bundler
+  "babel", // JavaScript compiler
+  "eslint", // Linter for JavaScript
+  "prettier", // Code formatter
+  "tailwindcss", // Utility-first CSS framework
+  "materialui", // React UI framework
+  "bootstrap", // CSS framework
+  "sass", // CSS pre-processor
+  "sqlite", // Lightweight database
+  "redis", // In-memory data structure store
+  "jupyter", // Jupyter notebooks for data science
+  "tensorflow", // Machine learning library
+  "kubernetes", // Container orchestration
+  "aws", // Amazon Web Services
+  "azure", // Microsoft Azure
+  "gcp", // Google Cloud Platform
+  "heroku", // Cloud platform for apps
+  "stripe", // Payment processing
+  "webpack", // Module bundler for modern JavaScript applications
+  "storybook", // UI component explorer
 ];
+
 
 const technologies = [
   {
@@ -51,7 +77,7 @@ const technologies = [
       "Zod",
       "React-Hook-Form",
     ],
-    icon: <FaReact className="w-8 h-8 text-primary"/>, // Add an icon name if using Lucide or React Icons
+    icon: <FaReact className="w-8 h-8"/>, // Add an icon name if using Lucide or React Icons
   },
   {
     title: "Back-End",
@@ -63,22 +89,22 @@ const technologies = [
       "Apollo GraphQL",
       "Microservices Architecture",
     ],
-    icon: <FaNodeJs  className="w-8 h-8 text-primary"/>, // Add an icon name if using Lucide or React Icons
+    icon: <FaNodeJs  className="w-8 h-8"/>, // Add an icon name if using Lucide or React Icons
   },
   {
     title: "DevOps",
     items: ["Docker", "Nginx", "Github Actions"],
-    icon: <FaDocker  className="w-8 h-8 text-primary"/>, // Add an icon name if using Lucide or React Icons
+    icon: <FaDocker  className="w-8 h-8"/>, // Add an icon name if using Lucide or React Icons
   },
   {
     title: "Docs",
     items: ["Swagger", "Postman", "Insomnia"],
-    icon: <IoDocumentTextOutline className="w-8 h-8 text-primary"/>, // Add an icon name if using Lucide or React Icons
+    icon: <IoDocumentTextOutline className="w-8 h-8"/>, // Add an icon name if using Lucide or React Icons
   },
   {
     title: "Familiarities (AUTH | CRUD)",
     items: ["PHP", "Laravel", "Vue"],
-    icon: <IoKeyOutline className="w-8 h-8 text-primary"/>,
+    icon: <IoKeyOutline className="w-8 h-8"/>,
   },
   {
     title: "Primary Stack",
@@ -100,7 +126,7 @@ const technologies = [
       "Jest",
       "Next-Intl",
     ],
-    icon: <PiStack className="w-8 h-8 text-primary" />,
+    icon: <PiStack className="w-8 h-8" />,
   },
 ];
 
@@ -109,7 +135,7 @@ export default function Skills() {
 
   return (
     <Wrapper id="skills">
-      <Container className="max-w-[850px] mx-auto">
+      <Container className=" mx-auto">
         <TitleSubtitle title="Skills" subtitle="I have experience with" />
 
         {/* Icon cloud for visual appeal */}
@@ -120,10 +146,10 @@ export default function Skills() {
           {technologies.map((tech) => (
             <div
               key={tech.title}
-              className={`p-4 flex flex-col gap-2 rounded-md shadow-sm bg-gray-50 dark:bg-gray-800 
+              className={`group p-4 flex flex-col gap-2 rounded-md  bg-gray-50 dark:bg-gray-800/80 shadow-sm 
               `}
             >
-              <div className="w-12 bg-indigo-100 p-2 rounded-full hover:bg-indigo-200 transition-all cursor-pointer">
+              <div className="w-12 bg-indigo-100 text-primary dark:bg-gray-700 p-2 rounded-full  dark:group-hover:!text-emerald-400 group-hover:!text-orange-400 dark:group-hover:!bg-gray-600 group-hover:!bg-orange-100 dark:hover:bg-gray-500 transition-all cursor-pointer">
                 {/* Render Icon */}
                 {tech.icon && tech.icon}
               </div>
@@ -134,7 +160,7 @@ export default function Skills() {
                 {tech.items.map((item, index) => (
                   <Badge
                     key={index}
-                    className="bg-indigo-100 text-indigo-500 cursor-pointer hover:!text-blue-500 hover:bg-violet-50"
+                    className="bg-indigo-100 dark:bg-gray-700 text-indigo-500 dark:text-primary cursor-pointer dark:group-hover:!text-emerald-400 group-hover:!text-orange-400 dark:group-hover:!bg-gray-600 group-hover:!bg-orange-100  transition-all"
                   >
                     {item}
                   </Badge>

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const FloatingNav = ({
   navItems,
@@ -14,7 +15,8 @@ export const FloatingNav = ({
     icon?: JSX.Element;
   }[];
   className?: string;
-}) => {
+  }) => {
+  const router=useRouter()
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(false);
@@ -67,8 +69,8 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
+        <button onClick={()=>router.push("/project/new/create")} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
+          <span>New</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
         </button>
       </motion.div>

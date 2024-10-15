@@ -64,20 +64,20 @@ export default function ProjectCard({
   return (
     <Card
       className={
-        "flex bg-background flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+        "group relative flex bg-background flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
       }
     >
       {isDbProject && (
-        <div className="flex items-center justify-end gap-2">
+        <div className="hidden absolute top-0 right-1 group-hover:flex items-center justify-end gap-2">
           <Link
             href={`/project/new/${projectId}`}
-            className="group cursor-pointer text-emerald-400 flex items-center justify-end text-right gap-2 text-primary hover:underline"
+            className="group p-2 cursor-pointer bg-gray-100 rounded-full text-emerald-400 flex items-center justify-end text-right gap-2 text-primary hover:underline transition-all"
           >
             <Edit className="h-3 w-3 " />
           </Link>
           <span
             onClick={deleteProjectHandler}
-            className="group cursor-pointer flex items-center text-red-400 justify-end text-right gap-2 text-primary hover:underline"
+            className="group p-2 cursor-pointer bg-gray-100 rounded-full flex items-center text-red-400 justify-end text-right gap-2 text-primary hover:underline"
           >
             <Trash className="h-3 w-3 " />
           </span>
@@ -86,7 +86,7 @@ export default function ProjectCard({
       <Link
         href={href || "#"}
         className={cn(
-          "block h-36 md:h-52 cursor-pointer",
+          "block h-44 md:h-52 cursor-pointer",
           { "border border-primary": play === title },
           className
         )}
@@ -99,7 +99,7 @@ export default function ProjectCard({
             muted
             playsInline
             autoFocus
-            preload="metadata"
+            preload="video"
             onPlay={() => setPlay(title)}
             onEnded={() => setPlay(null)}
             className="pointer-events-none mx-auto h-full w-full object-cover object-top" // needed because random black line at bottom of video
@@ -145,7 +145,7 @@ export default function ProjectCard({
               <Link href={link?.href} key={idx} target="_blank">
                 <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
                   {link.icon}
-                  {link.type||link.name}
+                  {link.type || link.name}
                 </Badge>
               </Link>
             ))}
