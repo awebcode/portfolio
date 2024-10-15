@@ -17,7 +17,7 @@ type ProjectWithLinks = Project & {
   links: LinkType[];
 };
 const Projects = () => {
-  const INITIAL_ITEMS_COUNT = 6;
+  const INITIAL_ITEMS_COUNT = 9;
   const [visibleCount, setVisibleCount] = useState(INITIAL_ITEMS_COUNT);
   const [showAll, setShowAll] = useState(false);
   const [items, setItems] = useState<ProjectWithLinks[]>(DATA.projects as any); // Initialize items as an empty array
@@ -26,12 +26,19 @@ const Projects = () => {
     // Fetch projects and set the items state
     getProjects()
       .then((fetchedProjects) => {
-        setItems((prev)=>[...prev, ...fetchedProjects]); // Set the items to the fetched projects
+        console.log(fetchedProjects);
+
+        setItems((prev) => [
+          ...prev,
+          ...fetchedProjects.filter(
+            (project) =>
+              !prev.some((existingProject) => existingProject.id === project.id)
+          ),
+        ]);
       })
       .catch((error) => {
         console.error("Failed to fetch projects:", error);
       });
-    
   }, []);
 
   const handleShowMore = () => {
@@ -60,10 +67,13 @@ const Projects = () => {
 
   return (
     <Wrapper id="projects" className="">
-      <Container className="max-w-[800px] mx-auto">
-        <Link href="/project/new/create" className="group flex items-center justify-end text-right gap-2 text-primary hover:underline">
+      <Container className="max-w-[1200px] mx-auto">
+        <Link
+          href="/project/new/create"
+          className="group flex items-center justify-end text-right gap-2 text-primary hover:underline"
+        >
           <span> Create New</span>{" "}
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
         </Link>
         <div className="my-4">
           <TitleSubtitle
@@ -76,7 +86,7 @@ const Projects = () => {
             subtitle="I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites."
           />
         </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mx-auto">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 mx-auto">
           {items.slice(0, visibleCount).map((project, id) => (
             <BlurFade key={project.id} delay={BLUR_FADE_DELAY * 3 + id * 0.05}>
               <ProjectCard
@@ -88,7 +98,9 @@ const Projects = () => {
                 tags={project.technologies}
                 image={project.image}
                 video={project.video}
-                links={project.links || []} // Pass links (default to empty array if undefined)
+                links={(project.links as any) || []}
+                isDbProject={project.id?.length>15}
+                projectId={project.id}
               />
             </BlurFade>
           ))}
@@ -98,7 +110,7 @@ const Projects = () => {
             <PrimaryButton onClick={handleShowMore}>Show More</PrimaryButton>
           )}
 
-          {visibleCount > INITIAL_ITEMS_COUNT&& !showAll && (
+          {visibleCount > INITIAL_ITEMS_COUNT && !showAll && (
             <PrimaryButton onClick={handleShowLess}>Show Less</PrimaryButton>
           )}
 

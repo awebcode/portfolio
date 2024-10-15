@@ -14,14 +14,14 @@ export const ProjectFormSchema = z.object({
   links: z
     .array(
       z.object({
-        type: z.string().min(1, "Link type is required"),
+        name: z.string().min(1, "Link name is required"),
         href: z.string().url("Invalid URL format"),
-        icon: z.string().min(1, "Icon URL is required"),
+       
       })
     )
     .min(1, "At least one link is required"),
-  image: z.string().url("Invalid image URL format").optional(),
-  video: z.string().url("Invalid video URL format").optional(),
+  image: z.string().optional(),
+  video: z.string().optional(),
 });
 
 // Infer the TypeScript type from the Zod schema

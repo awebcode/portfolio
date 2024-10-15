@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import React, { useEffect, useState } from "react";
+import { Controller, FormProvider, useForm, useFieldArray,FieldValues } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { ErrorMessage } from "@hookform/error-message";
 import { Textarea } from "@/components/ui/textarea";
-import TagInput from "./TagInput"; // Import the new TagInput component
+import TagInput from "./TagInput";
 import BlurFade from "@/components/ui/blur-fade";
 import {
   Select,
@@ -23,17 +23,18 @@ import PrimaryButton from "@/components/reusables/buttons/PrimaryButton";
 import { ProjectFormSchema } from "@/types/zodSchema/project/types";
 import { createProject, getSingleProject, updateProject } from "../actions";
 import TitleSubtitle from "@/components/reusables/contents/TitleSubtitle";
+import { useRouter } from "next/navigation";
 
-// Typescript type from Zod schema
+// TypeScript type from Zod schema
 type ProjectFormData = z.infer<typeof ProjectFormSchema>;
 
 export default function CreateProjectForm({ id }: { id: string }) {
+  const router = useRouter();
   const methods = useForm<ProjectFormData>({
     resolver: zodResolver(ProjectFormSchema),
     mode: "all",
     defaultValues: {
       technologies: [],
-      links: [{ type: "", href: "", icon: "" }], // Default structure for links
     },
   });
 
@@ -43,25 +44,26 @@ export default function CreateProjectForm({ id }: { id: string }) {
     reset,
     register,
     setValue,
-
-    formState: { isSubmitting },
+    formState: { isSubmitting},
   } = methods;
 
-  // Fetch and set project data if in edit mode
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "links",
+  });
+
   useEffect(() => {
     if (id) {
       getSingleProject(id)
         .then((project) => {
-          if (project) {
-            reset(project as any); // Correct way to populate form with fetched data
-          }
+          if (project) reset(project as any);
         })
         .catch((error) => {
           console.error("Failed to fetch project data:", error);
           toast.error("Could not load project details.");
         });
     }
-  }, [id, reset]); // Dependency on ID and reset function
+  }, [id, reset]);
 
   const onSubmit = async (data: ProjectFormData) => {
     try {
@@ -72,8 +74,8 @@ export default function CreateProjectForm({ id }: { id: string }) {
         await createProject(data);
         toast.success("Project created successfully!");
       }
-
-      reset(); // Reset the form
+      router.push("/");
+      reset();
     } catch (error) {
       console.error(error);
       toast.error("Failed to create project. Please try again.");
@@ -81,10 +83,7 @@ export default function CreateProjectForm({ id }: { id: string }) {
   };
 
   return (
-    <div
-      id="create-project"
-      className="max-w-lg w-full mx-auto p-8 shadow-input rounded-md"
-    >
+    <div className="max-w-lg w-full mx-auto p-8 shadow-input rounded-md">
       <BlurFade inView delay={0.5} className="flex flex-col gap-2">
         <TitleSubtitle
           subTitlePosition="bottom"
@@ -104,18 +103,15 @@ export default function CreateProjectForm({ id }: { id: string }) {
           subtitle={`Fill out the form below to ${id ? "edit" : "create"} your project.`}
         />
       </BlurFade>
+
       <FormProvider {...methods}>
         <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
-          {/* Title */}
           <LabelInputContainer>
             <Label htmlFor="title">Title</Label>
             <Input id="title" {...register("title")} placeholder="Project Title" />
-            <div className="text-rose-500 text-base">
-              <ErrorMessage name="title" />
-            </div>
+            <FormError name="title" />
           </LabelInputContainer>
 
-          {/* Href */}
           <LabelInputContainer>
             <Label htmlFor="href">Project URL</Label>
             <Input
@@ -124,12 +120,9 @@ export default function CreateProjectForm({ id }: { id: string }) {
               placeholder="https://your-project-url.com"
               type="url"
             />
-            <div className="text-rose-500 text-base">
-              <ErrorMessage name="href" />
-            </div>
+            <FormError name="href" />
           </LabelInputContainer>
 
-          {/* Dates */}
           <LabelInputContainer>
             <Label htmlFor="dates">Project Dates</Label>
             <Input
@@ -137,16 +130,13 @@ export default function CreateProjectForm({ id }: { id: string }) {
               {...register("dates")}
               placeholder="October 2024 - Present"
             />
-            <div className="text-rose-500 text-base">
-              <ErrorMessage name="dates" />
-            </div>
+            <FormError name="dates" />
           </LabelInputContainer>
 
-          {/* status */}
           <LabelInputContainer>
             <Label htmlFor="status">Status</Label>
             <Controller
-              name={"status"}
+              name="status"
               control={control}
               render={({ field }) => (
                 <Select onValueChange={field.onChange} value={field.value}>
@@ -155,35 +145,28 @@ export default function CreateProjectForm({ id }: { id: string }) {
                   </SelectTrigger>
                   <SelectContent id="status">
                     <SelectGroup>
-                      <SelectItem value={"Active"}>Active</SelectItem>
-                      <SelectItem value={"Pending"}>Pending</SelectItem>
-                      <SelectItem value={"Completed"}>Completed</SelectItem>
-                      <SelectItem value={"Disabled"}>Disabled</SelectItem>
+                      <SelectItem value="Active">Active</SelectItem>
+                      <SelectItem value="Pending">Pending</SelectItem>
+                      <SelectItem value="Completed">Completed</SelectItem>
+                      <SelectItem value="Disabled">Disabled</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               )}
             />
-            <div className="text-rose-500 text-base">
-              <ErrorMessage name="status" />
-            </div>
+            <FormError name="status" />
           </LabelInputContainer>
 
-          {/* Description */}
           <LabelInputContainer>
             <Label htmlFor="description">Description</Label>
             <Textarea
               id="description"
               {...register("description")}
               placeholder="Describe your project here..."
-              className="w-full h-24 p-2 border rounded-md focus:outline-none"
             />
-            <div className="text-rose-500 text-base">
-              <ErrorMessage name="description" />
-            </div>
+            <FormError name="description" />
           </LabelInputContainer>
 
-          {/* Technologies */}
           <LabelInputContainer>
             <Label htmlFor="technologies">Technologies</Label>
             <Controller
@@ -192,37 +175,14 @@ export default function CreateProjectForm({ id }: { id: string }) {
               render={({ field: { value } }) => (
                 <TagInput
                   value={value}
-                  onChange={(tags) => setValue("technologies", tags)} // Update the form state
+                  onChange={(tags) => setValue("technologies", tags)}
                   placeholder="Type a technology and press Enter or ','"
                 />
               )}
             />
-            <div className="text-rose-500 text-base">
-              <ErrorMessage name="technologies" />
-            </div>
+            <FormError name="technologies" />
           </LabelInputContainer>
-
-          {/* Links */}
-          <LabelInputContainer>
-            <Label htmlFor="links">Links</Label>
-            <Input
-              id="links"
-              {...register("links.0.type")}
-              placeholder="Link Type (e.g., Website)"
-            />
-            <Input
-              id="links"
-              {...register("links.0.href")}
-              placeholder="https://link-url.com"
-            />
-            <Input id="links" {...register("links.0.icon")} placeholder="Icon URL" />
-            <div className="text-rose-500 text-base">
-              <ErrorMessage name="links.0.type" />
-              <ErrorMessage name="links.0.href" />
-              <ErrorMessage name="links.0.icon" />
-            </div>
-          </LabelInputContainer>
-
+          {/* Image video */}
           {/* Image URL */}
           <LabelInputContainer>
             <Label htmlFor="image">Image URL</Label>
@@ -241,9 +201,21 @@ export default function CreateProjectForm({ id }: { id: string }) {
             </div>
           </LabelInputContainer>
 
+          <LinksInput
+            fields={fields}
+            append={append}
+            remove={remove}
+            register={register}
+          />
+
           <PrimaryButton type="submit" disabled={isSubmitting} className="w-full">
-            {isSubmitting && !id ? "Creating Project..." : "Create Project"}
-            {isSubmitting && id ? "Edit Project..." : "Edit Project"}
+            {isSubmitting
+              ? id
+                ? "Editing Project..."
+                : "Creating Project..."
+              : id
+              ? "Edit Project"
+              : "Create Project"}
           </PrimaryButton>
         </form>
       </FormProvider>
@@ -251,7 +223,72 @@ export default function CreateProjectForm({ id }: { id: string }) {
   );
 }
 
-// Helper component for label and input container
-const LabelInputContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <div className="mb-4">{children}</div>;
+// Reusable container component
+const LabelInputContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="mb-4">{children}</div>
+);
+
+// Reusable form error display component
+const FormError: React.FC<{ name: string }> = ({ name }) => (
+  <div className="text-rose-500 text-base">
+    <ErrorMessage name={name} />
+  </div>
+);
+
+
+
+
+
+const LinksInput: React.FC<{
+  fields: any[];
+  append: (link: { name: string; href: string }) => void;
+  remove: (index: number) => void;
+  register: any;
+}> = ({ fields, append, remove, register }) => {
+  const handleAddLink = () => {
+    append({ name: "", href: "" }); // Add a new link input
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent form submission on Enter key
+      handleAddLink(); // Add a new link
+    }
+  };
+
+  return (
+    <div className="mb-4">
+      <Label>Links</Label>
+
+      {fields.map((field, index) => (
+        <div key={field.id} className="flex-between gap-2 mb-2">
+          <LabelInputContainer>
+            <Input
+              placeholder="Link Name"
+              {...register(`links.${index}.name`)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
+            />
+            <FormError name={`links.${index}.name`} />
+          </LabelInputContainer>
+
+          <LabelInputContainer>
+            <Input
+              placeholder="https://link-url.com"
+              {...register(`links.${index}.href`)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
+            />
+            <FormError name={`links.${index}.href`} />
+          </LabelInputContainer>
+
+          <button type="button" onClick={() => remove(index)} className="text-red-500">
+            Remove
+          </button>
+        </div>
+      ))}
+
+      <PrimaryButton type="button" onClick={handleAddLink}>
+        Add Link
+      </PrimaryButton>
+    </div>
+  );
 };

@@ -28,6 +28,7 @@ interface Props {
     icon: React.ReactNode;
     type: string;
     href: string;
+    name: string;
   }[];
   className?: string;
   isDbProject?: boolean;
@@ -67,25 +68,25 @@ export default function ProjectCard({
       }
     >
       {isDbProject && (
-        <div className="flex gap-2">
+        <div className="flex items-center justify-end gap-2">
           <Link
             href={`/project/new/${projectId}`}
-            className="group text-emerald-400 flex items-center justify-end text-right gap-2 text-primary hover:underline"
+            className="group cursor-pointer text-emerald-400 flex items-center justify-end text-right gap-2 text-primary hover:underline"
           >
-            <Edit className="h-4 w-4 group-hover:translate-x-1 transition" />
+            <Edit className="h-3 w-3 " />
           </Link>
           <span
             onClick={deleteProjectHandler}
-            className="group flex items-center text-red-400 justify-end text-right gap-2 text-primary hover:underline"
+            className="group cursor-pointer flex items-center text-red-400 justify-end text-right gap-2 text-primary hover:underline"
           >
-            <Trash className="h-4 w-4 group-hover:translate-x-1 transition" />
+            <Trash className="h-3 w-3 " />
           </span>
         </div>
       )}
       <Link
         href={href || "#"}
         className={cn(
-          "block h-36 md:h-44 cursor-pointer",
+          "block h-36 md:h-52 cursor-pointer",
           { "border border-primary": play === title },
           className
         )}
@@ -144,7 +145,7 @@ export default function ProjectCard({
               <Link href={link?.href} key={idx} target="_blank">
                 <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
                   {link.icon}
-                  {link.type}
+                  {link.type||link.name}
                 </Badge>
               </Link>
             ))}

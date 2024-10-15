@@ -31,7 +31,7 @@ const TagInput: React.FC<TagInputProps> = ({ value, onChange, placeholder }) => 
   return (
       <div>
         <div className="flex flex-wrap gap-2">
-       {value.map((tag, index) => (
+       {value?.map((tag, index) => (
         <Badge key={index} >
           {tag}
           <button

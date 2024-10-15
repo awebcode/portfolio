@@ -1,7 +1,6 @@
 // schema.prisma
-
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL") // Make sure to set your database URL in your .env file
 }
 
@@ -18,23 +17,22 @@ enum Status {
 }
 
 model Project {
-  id          String   @id @default(uuid()) // Change to String and use uuid for auto-generated IDs
-  title       String
-  href        String
-  dates       String
-  status      Status   @default(Active) // Use the Status enum and set default value
-  description String
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  href         String
+  dates        String
+  status       Status   @default(Active) // Use the Status enum and set default value
+  description  String
   technologies String[] // Array of strings to store technologies
-  links       Link[]    @relation("ProjectLinks")
-  image       String?
-  video       String?
+  links        Link[]   @relation("ProjectLinks")
+  image        String?
+  video        String?
 }
 
 model Link {
-  id        String   @id @default(uuid()) // Change to String and use uuid for auto-generated IDs
-  type      String
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
   href      String
-  icon      String  // Assuming icon is stored as a string (could be a URL or a path)
-  projectId String  // Foreign key to the Project model (change to String)
-  project   Project  @relation("ProjectLinks", fields: [projectId], references: [id])
+  projectId String  @db.ObjectId // Foreign key to the Project model
+  project   Project @relation("ProjectLinks", fields: [projectId], references: [id])
 }
