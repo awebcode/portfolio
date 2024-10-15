@@ -11,7 +11,7 @@ import type { Link as LinkType, Project } from "@prisma/client";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { DATA } from "./data/DATA";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 const BLUR_FADE_DELAY = 0.1;
 type ProjectWithLinks = Project & {
