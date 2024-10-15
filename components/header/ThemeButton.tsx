@@ -4,6 +4,7 @@ import * as React from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const ThemeToggle: React.FC = () => {
   const { setTheme, theme } = useTheme();
@@ -28,7 +29,14 @@ const ThemeToggle: React.FC = () => {
       whileTap={{ scale: 0.9 }}
       transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.3 }}
     >
-      {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
+      <Tooltip>
+        <TooltipTrigger asChild>
+          {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
+        </TooltipTrigger>
+        <TooltipContent>
+          {isDark ? "Light Mode" : "Dark Mode"}
+        </TooltipContent>
+      </Tooltip>
     </motion.button>
   );
 };
