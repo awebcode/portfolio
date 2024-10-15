@@ -1,3 +1,4 @@
+import { deleteProject } from "@/app/(routes)/project/actions";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -7,9 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/utils/cn";
+import { Edit, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import Markdown from "react-markdown";
+import { toast } from "sonner";
 
 interface Props {
   title: string;
@@ -18,17 +22,19 @@ interface Props {
   dates: string;
   tags: readonly string[];
   link?: string;
-  image?: string;
-  video?: string;
+  image?: string | null;
+  video?: string | null;
   links?: readonly {
     icon: React.ReactNode;
     type: string;
     href: string;
   }[];
   className?: string;
+  isDbProject?: boolean;
+  projectId?: string;
 }
 
-export function ProjectCard({
+export default function ProjectCard({
   title,
   href,
   description,
@@ -39,14 +45,51 @@ export function ProjectCard({
   video,
   links,
   className,
+  isDbProject,
+  projectId,
 }: Props) {
+  const [play, setPlay] = React.useState<string | null>(null);
+  const deleteProjectHandler = async () => {
+    if (projectId && confirm("Are you sure you want to delete this project?")) {
+      try {
+        await deleteProject(projectId);
+        toast.success("Project deleted successfully");
+      } catch (error) {
+        toast.error("Failed to delete the project");
+      }
+    }
+  };
+
   return (
     <Card
       className={
         "flex bg-background flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
       }
     >
-      <Link href={href || "#"} className={cn("block h-44 cursor-pointer", className)}>
+      {isDbProject && (
+        <div className="flex gap-2">
+          <Link
+            href={`/project/new/${projectId}`}
+            className="group text-emerald-400 flex items-center justify-end text-right gap-2 text-primary hover:underline"
+          >
+            <Edit className="h-4 w-4 group-hover:translate-x-1 transition" />
+          </Link>
+          <span
+            onClick={deleteProjectHandler}
+            className="group flex items-center text-red-400 justify-end text-right gap-2 text-primary hover:underline"
+          >
+            <Trash className="h-4 w-4 group-hover:translate-x-1 transition" />
+          </span>
+        </div>
+      )}
+      <Link
+        href={href || "#"}
+        className={cn(
+          "block h-36 md:h-44 cursor-pointer",
+          { "border border-primary": play === title },
+          className
+        )}
+      >
         {video && (
           <video
             src={video}
@@ -54,6 +97,10 @@ export function ProjectCard({
             loop
             muted
             playsInline
+            autoFocus
+            preload="metadata"
+            onPlay={() => setPlay(title)}
+            onEnded={() => setPlay(null)}
             className="pointer-events-none mx-auto h-full w-full object-cover object-top" // needed because random black line at bottom of video
           />
         )}

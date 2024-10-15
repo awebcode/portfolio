@@ -18,7 +18,14 @@ export default function About() {
           {/* Left Section - About Me Text */}
 
           <BlurFade inView delay={0.5} className="md:w-1/2">
-            <TitleSubtitle title="About Me" subtitle="Get to know me" />
+            <TitleSubtitle
+              title={
+                <>
+                   <span className="text-primary">About </span> Me
+                </>
+              }
+              subtitle="Get to know me"
+            />
             <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-4 leading-relaxed">
               I’m Asikur Rahman, a full-stack developer with a passion for solving
               problems and building scalable web applications. My expertise spans both
