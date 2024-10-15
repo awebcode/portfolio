@@ -153,7 +153,7 @@ export default function Skills() {
                 {/* Render Icon */}
                 {tech.icon && tech.icon}
               </div>
-              <h3 className="font-semibold text-neutral-800 dark:text-gray-100 text-lg">
+              <h3 className="font-semibold font-syncopate text-neutral-800 dark:text-gray-100 text-lg">
                 {tech.title}
               </h3>
               <ul className="flex flex-wrap gap-1">

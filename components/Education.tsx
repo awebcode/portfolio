@@ -11,7 +11,7 @@ const Education = () => {
       <Container>
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Education</h2>
+            <h2 className="text-xl font-bold font-syncopate">Education</h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
             <BlurFade key={education.school} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>

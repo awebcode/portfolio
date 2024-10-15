@@ -18,22 +18,23 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="text-center text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
+            className="text-center font-opensans text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
           >
-            Hi, I’m <span className="text-primary">Asikur Rahman.</span>
+            <span className="font-syncopate"> Hi, I’m </span>
+            <span className="text-primary ">Asikur Rahman</span>.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-4 text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl text-center mx-auto"
+            className="mt-4 font-opensans text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl text-center mx-auto"
           >
-            Full-Stack Developer with expertise in{" "}
-            <span className="font-semibold text-primary">Next.js</span>,
-            <span className="font-semibold text-primary">Typescript</span> and{" "}
-            <span className="font-semibold text-primary">Node.js  </span>. I create fast and
-            scalable web apps.
+            I build beautiful interfaces , real-time and full-stack applications using
+            modern web technologies like
+            <span className="font-semibold"> Next.js,</span>{" "}
+            <span className="font-semibold">Node.js,</span>, and{" "}
+            <span className="font-semibold">Medusa</span>.
           </motion.p>
 
           <motion.div

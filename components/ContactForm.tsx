@@ -59,9 +59,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div  id="contact" className="max-w-md w-full mx-auto p-8 shadow-input  rounded-md">
-      <BlurFade inView delay={0.5} className="flex flex-col gap-2">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+    <div id="contact" className="max-w-lg w-full mx-auto p-8 shadow-input  rounded-md">
+      <BlurFade inView delay={0.5} className="flex  flex-col gap-2">
+        <h2 className="text-3xl font-syncopate  font-bold tracking-tighter sm:text-5xl">
           <span className="text-primary">Get in</span> Touch.
         </h2>
         <p className="mx-auto text-muted-foreground text-base leading-7">
@@ -86,8 +86,6 @@ export default function ContactForm() {
               <ErrorMessage name="name" />
             </div>
           </LabelInputContainer>
-
-         
 
           {/* Email */}
           <LabelInputContainer>

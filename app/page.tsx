@@ -1,7 +1,7 @@
 import AboutMe from "@/components/AboutMe";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
-import FloatingDockButtons from "@/components/FloatingDock";
+// import FloatingDockButtons from "@/components/FloatingDock";
 import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -17,7 +17,6 @@ const page = () => {
       <AboutMe />
       <Education />
       <Experience />
-      <FloatingDockButtons />
       <Skills />
       <Projects />
       <Testimonials />

@@ -1,7 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { CalendarIcon,  HomeIcon, MailIcon, MenuIcon, PencilIcon, TrashIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  HomeIcon,
+  MailIcon,
+  MenuIcon,
+  PencilIcon,
+  TrashIcon,
+} from "lucide-react";
 
 import { cn } from "@/utils/cn";
 import { buttonVariants } from "@/components/ui/button";
@@ -95,76 +102,77 @@ const DATA = {
 };
 
 export default function FloatingDockButtons() {
-  const [isHidden,setIsHidden] = useState(false)
+  const [isHidden, setIsHidden] = useState(false);
   return (
-    <div className={`${isHidden ? "hidden" : "block"} z-50 fixed bottom-10 left-1/2 -translate-x-1/2  w-full mx-auto md:w-full flex-col items-center justify-center overflow-hidden rounded-lg  `}>
-      <TooltipProvider delayDuration={0}>
-        <Dock direction="middle" className="relative">
-          <div title="Close Dock" onClick={() => setIsHidden(true)} className="cursor-pointer absolute right-2 -top-2  p-1 bg-emerald-100 rounded-full">
-            {" "}
-            <TrashIcon  className="h-4 w-4 text-emerald-500 hover:scale-105"  />
-          </div>
+    <div
+      className={`${
+        isHidden ? "hidden" : "block"
+      } z-50 fixed  bottom-16 left-1/2 -translate-x-1/2  w-[84%] flex-center md:w-full flex-col items-center justify-center overflow-hidden rounded-lg  `}
+    >
+      <Dock direction="middle" className="relative w-full md:w-fit">
+        <div
+          title="Close Dock"
+          onClick={() => setIsHidden(true)}
+          className="cursor-pointer absolute right-2 -top-2  p-1 bg-emerald-100 rounded-full"
+        >
+          {" "}
+          <TrashIcon className="h-4 w-4 text-emerald-500 hover:scale-105" />
+        </div>
 
-          {DATA.navbar.map((item) => (
-            <DockIcon key={item.label}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <CoolMode>
-                    <Link
-                      href={item.href}
-                      aria-label={item.label}
-                      className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-8 md:size-12 rounded-full"
-                      )}
-                    >
-                      <item.icon className="size-3 md:size-4" />
-                    </Link>
-                  </CoolMode>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-white">{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-          <Separator orientation="vertical" className="h-full" />
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <CoolMode>
-                    <Link
-                      href={social.url}
-                      aria-label={social.name}
-                      className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-8 md:size-12 rounded-full"
-                      )}
-                    >
-                      <social.icon className="size-3 md:size-4" />
-                    </Link>
-                  </CoolMode>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-white">{name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-          <Separator orientation="vertical" className="h-full py-2" />
-          <DockIcon>
+        {DATA.navbar.map((item) => (
+          <DockIcon key={item.label}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <ThemeToggle />
+                <Link
+                  href={item.href}
+                  aria-label={item.label}
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "size-8 md:size-12 rounded-full "
+                  )}
+                >
+                  <CoolMode>
+                    <item.icon className="size-3 md:size-4" />
+                  </CoolMode>
+                </Link>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Theme</p>
+                <>{item.label}</>
               </TooltipContent>
             </Tooltip>
           </DockIcon>
-        </Dock>
-      </TooltipProvider>
+        ))}
+        <Separator orientation="vertical" className="h-full" />
+        {Object.entries(DATA.contact.social).map(([name, social]) => (
+          <DockIcon key={name}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href={social.url}
+                  aria-label={social.name}
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "size-8 md:size-12 rounded-full"
+                  )}
+                >
+                  <CoolMode>
+                    <social.icon className="size-3 md:size-4" />
+                  </CoolMode>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <>{name}</>
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+        ))}
+        <Separator orientation="vertical" className="h-full py-2" />
+        <DockIcon>
+          <CoolMode>
+            <ThemeToggle />
+          </CoolMode>
+        </DockIcon>
+      </Dock>
     </div>
   );
 }

@@ -15,8 +15,8 @@ const config: Config = {
   },
   theme: {
     extend: {
-		  container: {
-		center: true,
+      container: {
+        center: true,
         padding: {
           DEFAULT: "1rem",
           sm: "2rem",
@@ -87,8 +87,11 @@ const config: Config = {
           "`0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`",
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        glory: ["var(--font-glory)", "cursive"], // Add your custom font here
+        syncopate: ["var(--font-syncopate)", "cursive"], // Add your custom font here
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        josefin: ["var(--font-josefin)", "serif"],
+        opensans: ["var(--font-opensans)", "sans-serif"],
       },
       transitionProperty: {
         borderColor: "border-color",
