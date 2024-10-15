@@ -22,7 +22,11 @@ export default function Hero() {
             className="text-center font-opensans text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
           >
             <span className="font-syncopate"> Hi, I’m </span>
-              <Cover>Asikur Rahman </Cover>
+            <Cover>
+              <span className="font-bold font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400 bg-clip-text">
+                Asikur Rahman
+              </span>{" "}
+            </Cover>
             .
           </motion.h1>
 
