@@ -113,18 +113,14 @@ export const BackgroundBeamsWithCollision = ({
         className
       )}
     >
-      {beams.map(
-        (
-          beam //!isMobile&&
-        ) => (
-          <CollisionMechanism
-            key={beam.initialX + "beam-idx"}
-            beamOptions={beam}
-            containerRef={containerRef}
-            parentRef={parentRef}
-          />
-        )
-      )}
+     {!isMobile&& beams.map((beam) => (
+        <CollisionMechanism
+          key={beam.initialX + "beam-idx"}
+          beamOptions={beam}
+          containerRef={containerRef}
+          parentRef={parentRef}
+        />
+      ))}
 
       {children}
       <div

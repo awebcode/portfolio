@@ -25,7 +25,7 @@ export default function Hero() {
           >
             <span className="font-syncopate"> Hi, I’m </span>
             {isMobile ? (
-                <span className="font-bold bg-white dark:bg-black font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
+                <span className="font-bold  font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
                   Asikur Rahman
                 </span>
             ) : (
