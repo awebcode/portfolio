@@ -70,8 +70,8 @@ const Projects = () => {
   return (
     <Wrapper id="projects" className="">
       <Container className=" mx-auto">
-        <div className="my-8 flex-between items-start gap-2">
-          <div className="basis-3/4">
+        <div className="my-8 flex-between flex-col md:flex-row items-start gap-2">
+          <div className="basis-full md:basis-3/4">
             <TitleSubtitle
               subTitlePosition="bottom"
               title={
@@ -90,7 +90,7 @@ const Projects = () => {
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 mx-auto">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 mx-auto">
           {items.slice(0, visibleCount).map((project, id) => (
             <BlurFade key={project.id} delay={BLUR_FADE_DELAY * 3 + id * 0.05}>
               <ProjectCard

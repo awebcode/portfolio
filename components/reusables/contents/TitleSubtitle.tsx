@@ -25,7 +25,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
       {subTitlePosition === "top" && (
         <p
           className={cn(
-            "inline-block font-syncopate  tracking-widest relative  after:content-[''] after:absolute after:w-6 md:after:w-8 after:h-[1px] after:bg-primary after:top-1/2 after:-right-8 md:after:-right-12 after:transform after:-translate-y-1/2",
+            "inline-block font-syncopate   tracking-widest relative  after:content-[''] after:absolute after:w-6 md:after:w-8 after:h-[1px] after:bg-primary after:top-1/2 after:-right-8 md:after:-right-12 after:transform after:-translate-y-1/2",
             leftLine
               ? "before:content-[''] before:absolute before:w-6 md:before:w-8 before:h-[1px] before:bg-primary before:top-1/2 before:-left-8 md:before:-left-12 before:transform before:-translate-y-1/2"
               : "before:hidden",
@@ -38,7 +38,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
       )}
       <h1
         className={cn(
-          `text-3xl  md:text-5xl my-2  text-black dark:text-white  font-syncopate font-thin `,
+          `text-3xl  md:text-4xl my-2  text-black dark:text-white  font-syncopate font-bold `,
           titleClassName
         )}
       >
@@ -47,7 +47,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
       {subTitlePosition === "bottom" && (
         <p
           className={cn(
-            "inline-block    font-syncopate    tracking-widest relative   ",
+            "inline-block    md:font-syncopate    tracking-widest relative   ",
 
             subTitleClassName
           )}

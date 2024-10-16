@@ -1,4 +1,5 @@
 "use client";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { cn } from "@/utils/cn";
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
 import React from "react";
@@ -67,6 +68,8 @@ export const Highlight = ({
   children: React.ReactNode;
   className?: string;
 }) => {
+  const isMobile = useMediaQuery("(max-width: 640px)");
+
   return (
     <motion.span
       initial={{
@@ -76,9 +79,9 @@ export const Highlight = ({
         backgroundSize: "100% 100%",
       }}
       transition={{
-        duration: 2,
+        duration:isMobile ? 1 : 1.4,
         ease: "linear",
-        delay: 0.5,
+        delay:isMobile ? 0: 0.3,
       }}
       style={{
         backgroundRepeat: "no-repeat",

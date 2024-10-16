@@ -9,8 +9,10 @@ import TitleSubtitle from "./reusables/contents/TitleSubtitle";
 import { Spotlight } from "./ui/spotlight";
 import BlurFade from "./ui/blur-fade";
 import Wrapper from "./reusables/contents/Wrapper";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function About() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <Wrapper id="about">
       <BackgroundBeamsWithCollision className=" min-h-screen h-full">
@@ -19,7 +21,7 @@ export default function About() {
           <Container className="flex flex-col md:flex-row items-center md:items-start gap-10 mt-10">
             {/* Left Section - About Me Text */}
 
-            <BlurFade inView delay={0.5} className="md:w-1/2">
+            <BlurFade inView={!isMobile} delay={isMobile ? 0.1 : 0.5} className="md:w-1/2">
               <TitleSubtitle
                 title={
                   <>
@@ -62,7 +64,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="md:w-1/2 flex justify-center"
             >
-              <BlurFade inView delay={0.5}>
+              <BlurFade inView={!isMobile} delay={isMobile ? 0.1 : 0.5}>
                 <Image
                   src="/images/hero.png"
                   alt="Asikur Rahman"

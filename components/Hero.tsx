@@ -8,8 +8,10 @@ import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-w
 import GoToArrowDown from "./reusables/contents/GoToArrowDown";
 import { Spotlight } from "./ui/spotlight";
 import { Cover } from "./ui/cover";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function Hero() {
+   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <BackgroundBeamsWithCollision className="relative min-h-screen h-full">
       <Spotlight className="top-14 left-10 md:left-52 md:-top-20 " fill="white" />
@@ -27,13 +29,13 @@ export default function Hero() {
                 Asikur Rahman
               </span>{" "}
             </Cover>
-            .
+            
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: isMobile ? 0 : 0.2, duration: isMobile ? 0.1 : 0.5 }}
             className="mt-4 font-opensans text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl text-center mx-auto"
           >
             I build beautiful interfaces , real-time and full-stack applications using
@@ -46,7 +48,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
+            transition={{ delay: isMobile ? 0.2 : 0.4, duration: isMobile ? 0.1 : 0.5 }}
             className="mt-8 flex justify-center space-x-6"
           >
             <PrimaryButton href="#projects">Explore My Work</PrimaryButton>

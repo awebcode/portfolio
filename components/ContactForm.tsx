@@ -18,7 +18,48 @@ import TitleSubtitle from "./reusables/contents/TitleSubtitle";
 import Container from "./reusables/contents/Container";
 import Wrapper from "./reusables/contents/Wrapper";
 
-// Email Sending Setup (using Resend)
+import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { X } from "lucide-react";
+const CONTACT_ITEMS = [
+  {
+    icon: <CiPhone className="w-4 md:w-5 h-4 md:h-5" />,
+    content: DATA.contact.tel,
+  },
+  {
+    icon: <CiMail className="w-4 md:w-5 h-4 md:h-5" />,
+    content: DATA.contact.email,
+  },
+  {
+    icon: <CiLocationOn className="w-4 md:w-5 h-4 md:h-5" />,
+    content: "Everywhere in the world.",
+  },
+];
+
+const SOCIAL_LINKS = [
+  {
+    label: "GitHub",
+    icon: <FaGithub className="w-4 md:w-5 h-4 md:h-5" />,
+
+    url: DATA.contact.social.GitHub.url,
+  },
+
+  {
+    label: "LinkedIn",
+    icon: <FaLinkedin className="w-4 md:w-5 h-4 md:h-5" />,
+    url: DATA.contact.social.LinkedIn.url,
+  },
+  {
+    label: "X",
+    icon: <X className="w-4 md:w-5 h-4 md:h-5" />,
+    url: DATA.contact.social.X.url,
+  },
+  {
+    label: "Facebook",
+    icon: <FaFacebook className="w-4 md:w-5 h-4 md:h-5" />,
+    url: DATA.contact.social.facebook.url,
+  },
+];
 
 // Zod Schema for Validation
 const ContactFormSchema = z.object({
@@ -53,26 +94,34 @@ export default function ContactForm() {
         .then((res) => res.json())
         .then((data) => console.log(data));
 
-      toast.success("Message sent successfully!");
+      toast.success("Message sent successfully!", {
+        description: "I will get back to you as soon as possible.",
+        duration: 5000,
+        dismissible: true,
+        position:"top-center"
+      });
       reset(); // Reset the form
     } catch (error) {
       console.error(error);
-      toast.error("Failed to send message. Please try again.");
+      toast.error("Failed to send message. Please try again.", {
+        duration: 3000,
+        dismissible: true,
+      });
     }
   };
 
   return (
-    <Wrapper>
+    <Wrapper id="contact">
       <Container className=" mx-auto shadow-md md:hover:border-2 rounded-xl md:hover:border-primary transition-all duration-300">
         <div className=" flex flex-col-reverse md:flex-row items-center w-full mx-auto shadow-input rounded-md">
           {/* Left Side */}
-          <div className="flex flex-col basis-1/3 p-4 md:border-r border-primary ">
+          <div className="flex flex-col basis-1/3 p-4 md:border-r border-primary/50 ">
             <ContactInformation />
           </div>
 
           {/* Right Side */}
           <div className="flex-1 p-4">
-            <BlurFade inView delay={0.5} className="flex flex-col gap-2">
+            <BlurFade inView delay={0.2} className="flex flex-col gap-2">
               <h2 className="text-3xl font-syncopate font-bold tracking-tighter sm:text-5xl">
                 <span className="text-primary">Get in</span> Touch.
               </h2>
@@ -155,55 +204,39 @@ const LabelInputContainer = ({
   className?: string;
 }) => <div className={cn("flex flex-col space-y-2 mb-4", className)}>{children}</div>;
 
-
 const ContactInformation = () => {
   return (
     <>
-      <TitleSubtitle
-        subTitlePosition="bottom"
-        title={
-          <>
-            Contact <span className="text-primary">Information</span>
-          </>
-        }
-        subtitle="Feel free to reach out via any of the following channels:"
-      />
-      
-      <ul className="mt-4 space-y-2">
-        <p>
-          <strong className="text-gray-600 dark:text-gray-200">Phone:</strong> {DATA.contact.tel}
-        </p>
-        <p>
-          <strong className="text-gray-600 dark:text-gray-200">Email:</strong> {DATA.contact.email}
-        </p>
-        <li>
-          <strong className="text-gray-600 dark:text-gray-200">Github:</strong>{" "}
-          <Link
-            href={DATA.contact.social.GitHub.url}
-            className="text-blue-500 hover:underline"
-          >
-            GitHub Profile
-          </Link>
-        </li>
-        <li>
-          <strong className="text-gray-600 dark:text-gray-200">LinkedIn:</strong>{" "}
-          <Link
-            href={DATA.contact.social.LinkedIn.url}
-            className="text-blue-500 hover:underline"
-          >
-            LinkedIn Profile
-          </Link>
-        </li>
-        <li>
-          <strong className="text-gray-600 dark:text-gray-200">Twitter:</strong>{" "}
-          <Link
-            href={DATA.contact.social.X.url}
-            className="text-blue-500 hover:underline"
-          >
-            Twitter Profile
-          </Link>
-        </li>
-      </ul>
+      <h2 className="text-xl font-syncopate font-bold  sm:text-2xl">
+        Contact <span className="text-primary">Info.</span>
+      </h2>
+      <p className="mx-auto text-muted-foreground text-base leading-7">
+        Feel free to reach out via any of the following channels:
+      </p>
+
+      <div className="mt-4 space-y-2">
+        {CONTACT_ITEMS.map((item, index) => (
+          <p key={index} className="group cursor-pointer flex-center justify-start gap-2">
+            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-white group-hover:bg-emerald-100 text-gray-500 rounded-full transition-all">
+              {item.icon}
+            </span>
+            {item.content}
+          </p>
+        ))}
+      </div>
+
+      <div className="mt-4 space-y-2">
+        {SOCIAL_LINKS.map((link, index) => (
+          <p key={index} className="group cursor-pointer flex-center justify-start gap-2">
+            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-white group-hover:bg-emerald-100 text-gray-500 rounded-full transition-all">
+              {link.icon}
+            </span>
+            <Link href={link.url} className="text-blue-500 hover:underline">
+              {link.label}
+            </Link>
+          </p>
+        ))}
+      </div>
     </>
   );
-}
+};
