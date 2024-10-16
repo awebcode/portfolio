@@ -48,7 +48,7 @@ export const defaultSEOdata: Metadata = {
     title: "Asikur Rahman - Full-Stack Web Developer Portfolio",
     description:
       "Explore the portfolio of Asikur Rahman, showcasing skills in modern web technologies and innovative solutions.",
-    url: "https://asikur-portfolio.vercel.app",
+    url: "https://asikur.vercel.app",
     images: [
       {
         url: "https://res.cloudinary.com/asikur/image/upload/c_thumb,w_200,g_face/v1697458521/Screenshot_502_vzrohp.png",
@@ -88,15 +88,15 @@ export const defaultSEOdata: Metadata = {
     },
   ],
   applicationName: "Asikur Rahman Portfolio",
-  authors: [{ name: "Asikur Rahman", url: "https://asikur-portfolio.vercel.app" }],
+  authors: [{ name: "Asikur Rahman", url: "https://asikur.vercel.app" }],
   verification: {
     google: "google-site-verification=1234567890",
     yandex: "yandex-verification=1234567890",
     yahoo: "y_key=1234567890",
   },
-  manifest: "https://asikur-portfolio.vercel.app/manifest.webmanifest",
+  manifest: "https://asikur.vercel.app/manifest.webmanifest",
   appLinks: {
-    web: [{ url: "https://asikur-portfolio.vercel.app", should_fallback: true }],
+    web: [{ url: "https://asikur.vercel.app", should_fallback: true }],
   },
   creator: "Asikur Rahman",
   category: "Portfolio",

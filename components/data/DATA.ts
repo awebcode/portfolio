@@ -5,7 +5,7 @@ import { FiFacebook } from "react-icons/fi";
 export const DATA = {
   name: "Asikur Rahman",
   initials: "AR",
-  url: "https://asikur-portfolio.vercel.app",
+  url: "https://asikur.vercel.app",
   location: "Bangladesh,BD",
   locationLink: "https://www.google.com/maps/place/bangladesh",
   description:
@@ -449,7 +449,7 @@ export const DATA = {
     },
     {
       title: "Portfolio 2023 - Portfolio Website",
-      href: "https://asikur.vercel.app/",
+      href: "https://asikurspace.vercel.app/",
       dates: "Feb  2023 - April  2023",
       active: true,
       description:
@@ -469,7 +469,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://asikur.vercel.app/",
+          href: "https://asikurspace.vercel.app/",
           icon: Icons.globe,
         },
         {
@@ -485,7 +485,7 @@ export const DATA = {
 
     {
       title: "Portfolio Latest",
-      href: "https://asikur-portfolio.vercel.app/",
+      href: "https://asikur.vercel.app/",
       dates: "October  2024 - Present",
       active: true,
       description:
@@ -506,7 +506,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://asikur-portfolio.vercel.app/",
+          href: "https://asikur.vercel.app/",
           icon: Icons.globe,
         },
         {
@@ -562,7 +562,6 @@ export const DATA = {
     },
   ],
 } as const;
-
 
 // Positive Reviews
 // Sample positive review sentences for a full-stack developer
