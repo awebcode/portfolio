@@ -118,7 +118,7 @@ export default function ProjectCard({
             {/* Fallback content */}
             {videoLoading && (
               <Image
-                src="/images/fallback.png"
+                src="/images/fallback3.png"
                 alt={title}
                 width={500}
                 height={300}
