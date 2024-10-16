@@ -54,7 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: isMobile ? 0 : 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: isMobile ? 0.2 : 0.4, duration: isMobile ? 0.1 : 0.5 }}
-            className="mt-8 flex justify-center space-x-6"
+            className="mt-8 flex justify-center space-x-3"
           >
             <PrimaryButton href="#projects">Explore My Work</PrimaryButton>
 
