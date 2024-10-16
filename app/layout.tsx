@@ -16,6 +16,7 @@ import ScrollLoader from "@/components/reusables/ScrollLoader";
 import FloatingNavbar from "../components/header/Header";
 import FloatingDockButtons from "@/components/FloatingDock";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Particles from "@/components/ui/particles";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -50,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${poppins.className} ${josefin.variable} ${glory.variable} ${syncopate.variable} ${opensans.variable} ${opensans.className} bg-background min-h-screen flex justify-around flex-col gap-4`}
+        className={`${poppins.variable} ${poppins.className} ${josefin.variable} ${glory.variable} ${syncopate.variable} ${opensans.variable} ${opensans.className} relative bg-background min-h-screen flex justify-around flex-col gap-4`}
       >
         <TooltipProvider delayDuration={0}>
           <ThemeProvider
@@ -67,6 +68,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <footer>
               <Footer />
             </footer>
+            <Particles
+              className="absolute inset-0"
+              ease={80}
+              refresh
+            />
             <Toaster toastOptions={{ duration: 3000 }} theme="light" />
             <ScrollToTop />
             <ScrollLoader />

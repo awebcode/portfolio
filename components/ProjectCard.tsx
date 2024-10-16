@@ -51,6 +51,7 @@ export default function ProjectCard({
   projectId,
 }: Props) {
   const [play, setPlay] = React.useState<string | null>(null);
+  const [videoLoading, setVideoLoading] = React.useState(true);
   const deleteProjectHandler = async () => {
     if (projectId && confirm("Are you sure you want to delete this project?")) {
       try {
@@ -92,20 +93,41 @@ export default function ProjectCard({
           className
         )}
       >
-        {video && (
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            autoFocus
-            preload="video"
-            onPlay={() => setPlay(title)}
-            onEnded={() => setPlay(null)}
-            className="pointer-events-none mx-auto h-full w-full object-cover object-top" // needed because random black line at bottom of video
-          />
-        )}
+        {video&&!image && (
+          <div className="relative mx-auto h-full w-full">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              autoFocus
+              preload="auto"
+              onPlay={() => setPlay(title)}
+              onEnded={() => setPlay(null)}
+              onError={() => setPlay(null)} // Optional: Handle error events
+              onLoadStart={() => setVideoLoading(true)} // Set loading to true when video starts loading
+              onLoadedData={() => setVideoLoading(false)} // Set loading to false when video data is loaded
+              className={`pointer-events-none h-full w-full object-cover object-top ${
+                videoLoading ? "hidden" : "block"
+              }`} // Hide video while loading
+            >
+              <source src={video} type="video/mp4" />
+              {/* You can add more source tags for different formats here */}
+            </video>
+
+            {/* Fallback content */}
+            {videoLoading && (
+              <Image
+                src="/images/fallback.png"
+                alt={title}
+                width={500}
+                height={300}
+                className="h-full w-full overflow-hidden object-cover object-top"
+              />
+            )}
+          </div>
+        ) }
+
         {image && (
           <Image
             src={image}

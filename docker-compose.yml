@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   postgres:
@@ -17,29 +17,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
-    depends_on:
-      - postgres
-    networks:
-      - mynetwork
-
-  server:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
-    ports:
-      - '3001:3001'
-    depends_on:
-      - postgres
-    networks:
-      - mynetwork
-
-  express-server:
-    build:
-      context: ./express-server
-      dockerfile: Dockerfile
-    ports:
-      - '3002:3002'
+      - "3000:3000"
     depends_on:
       - postgres
     networks:

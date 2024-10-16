@@ -10,8 +10,9 @@ import React from "react";
 import Testimonials from "@/components/Testimonials";
 
 const page = () => {
+  
   return (
-    <div className="mx-auto w-full ">
+    <div className="mx-auto w-full">
       {/* max-w-2xl */}
       <Hero />
       <AboutMe />

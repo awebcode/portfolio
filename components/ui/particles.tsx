@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
+import { useTheme } from "next-themes";
 import React, { useEffect, useRef, useState } from "react";
 
 interface MousePosition {
@@ -59,15 +60,18 @@ function hexToRgb(hex: string): number[] {
 
 const Particles: React.FC<ParticlesProps> = ({
   className = "",
-  quantity = 100,
-  staticity = 50,
-  ease = 50,
+  quantity = 250,
+  staticity = 60,
+  ease = 80,
   size = 0.4,
   refresh = false,
-  color = "#ffffff",
   vx = 0,
   vy = 0,
 }) => {
+  const { theme } = useTheme();
+   const [color, setColor] = useState("#ffffff");
+
+ 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
@@ -76,7 +80,9 @@ const Particles: React.FC<ParticlesProps> = ({
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
-
+  useEffect(() => {
+    setColor(theme === "dark" ? "#ffffff" : "#000000");
+  }, [theme]);
   useEffect(() => {
     if (canvasRef.current) {
       context.current = canvasRef.current.getContext("2d");

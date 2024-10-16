@@ -1,8 +1,8 @@
-# 🚀 Asikur Rahaman – Portfolio
+# 🚀 Asikur Rahman – Portfolio
 
 **Live Demo:** [asikur.vercel.app](https://asikur.vercel.app)  
 
-Welcome to the source code of my **developer portfolio**, showcasing my projects, experience, and skills. This portfolio is built with modern web technologies to reflect my expertise as a **Full Stack Developer**.
+Welcome to the source code of my **developer portfolio**, showcasing my projects, experience, and skills. This portfolio is built with modern web technologies to reflect my expertise as a **Full Stack web Developer**.
 
 ---
 
@@ -53,16 +53,22 @@ I look forward to contributing to innovative projects, collaborating with talent
 
 ## 🛠️ Technologies Used  
 **Frontend:**  
-- Next.js, React, Tailwind CSS, Framer Motion
+- Next.js, React, Tailwind CSS, ShadCn, Framer Motion
 
 **Backend:**  
-- Node.js, Express.js, Prisma ORM
+- Next.js, Prisma ORM
 
 **Database:**  
-- PostgreSQL, MongoDB
+- PostgreSQL
+
+**Email**
+- Resend
+
+**File-Storage**
+- Cloudinary
 
 **Dev Tools:**  
-- Git, Docker, Vercel, Firebase
+- Git, Docker, Vercel
 
 ---
 
@@ -71,7 +77,7 @@ I look forward to contributing to innovative projects, collaborating with talent
 ### Follow these steps to set up the project locally:
 
 ### Prerequisites  
-- Node.js (>= 16.x)  
+- Node.js (>= 20.x)  
 - Yarn (preferred) or npm  
 - Git installed
 
