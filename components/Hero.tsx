@@ -13,7 +13,6 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 export default function Hero() {
    const isMobile = useMediaQuery("(max-width: 768px)");
   return (
-    
     <BackgroundBeamsWithCollision className="relative min-h-screen h-full">
       <Spotlight className="top-14 left-10 md:left-52 md:-top-20 " fill="white" />
       <HeroHighlight containerClassName=" bg-white dark:bg-black shadow-none min-h-screen h-full py-10">
@@ -25,11 +24,17 @@ export default function Hero() {
             className="text-center font-opensans text-4xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
           >
             <span className="font-syncopate"> Hi, I’m </span>
-            <Cover>
-              <span className="font-bold font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
-                Asikur Rahman
-              </span>{" "}
-            </Cover>
+            {isMobile ? (
+                <span className="font-bold bg-white dark:bg-black font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
+                  Asikur Rahman
+                </span>
+            ) : (
+              <Cover>
+                <span className="font-bold font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
+                  Asikur Rahman
+                </span>{" "}
+              </Cover>
+            )}
           </motion.h1>
 
           <motion.p
