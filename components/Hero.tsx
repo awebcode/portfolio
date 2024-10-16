@@ -18,9 +18,9 @@ export default function Hero() {
       <HeroHighlight containerClassName=" bg-white dark:bg-black shadow-none min-h-screen h-full py-10">
         <Container>
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: isMobile ? 0 : 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: isMobile ? 0 : 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="text-center font-opensans text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
           >
             <span className="font-syncopate"> Hi, I’m </span>
@@ -29,11 +29,10 @@ export default function Hero() {
                 Asikur Rahman
               </span>{" "}
             </Cover>
-            
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: isMobile ? 0 : 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: isMobile ? 0 : 0.2, duration: isMobile ? 0.1 : 0.5 }}
             className="mt-4 font-opensans text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl text-center mx-auto"
@@ -46,7 +45,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: isMobile ? 0 : 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: isMobile ? 0.2 : 0.4, duration: isMobile ? 0.1 : 0.5 }}
             className="mt-8 flex justify-center space-x-6"

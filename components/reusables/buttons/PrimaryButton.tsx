@@ -5,6 +5,7 @@ import { cn } from "@/utils/cn";
 import { CoolMode } from "@/components/ui/cool-mode";
 import { useRouter } from "next/navigation";
 import ShimmerButton from "@/components/ui/shimmer-button";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 // Define mutually exclusive prop types
 type ButtonWithHref = {
@@ -39,6 +40,7 @@ const PrimaryButton: FC<ButtonProps> = ({
   type = "button",
   ...props
 }) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const router = useRouter();
   // Warn if both `href` and `onClick` are provided (this should never happen due to TypeScript)
   React.useEffect(() => {
@@ -76,7 +78,7 @@ const PrimaryButton: FC<ButtonProps> = ({
 
   return (
     <CoolMode>
-      <ShimmerButton onClick={goTo} className={cn(`shadow-2xl text-white `,className)}>
+      <ShimmerButton shimmerDuration={isMobile?"5s":"3s"} onClick={goTo} className={cn(`shadow-2xl text-white `,className)}>
         <motion.span
           {...animations}
           transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.3 }}

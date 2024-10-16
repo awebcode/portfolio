@@ -5,8 +5,6 @@ import {
   CalendarIcon,
   HomeIcon,
   MailIcon,
-  MenuIcon,
-  PencilIcon,
   TrashIcon,
 } from "lucide-react";
 
@@ -17,12 +15,12 @@ import { CoolMode } from "@/components/ui/cool-mode";
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import ThemeToggle from "./header/ThemeButton";
 import { GrProjects } from "react-icons/gr";
+import { TfiServer } from "react-icons/tfi";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -74,6 +72,7 @@ const DATA = {
   navbar: [
     { href: "#", icon: HomeIcon, label: "Home" },
     { href: "#projects", icon: GrProjects, label: "Projects" },
+    { href: process.env.NEXT_PUBLIC_BASE_URL + "/api", icon: TfiServer , label: "API" },
   ],
   contact: {
     social: {

@@ -14,13 +14,13 @@ import { DATA } from "./data/DATA";
 import Link from "next/link";
 import PrimaryButton from "./reusables/buttons/PrimaryButton";
 import BlurFade from "./ui/blur-fade";
-import TitleSubtitle from "./reusables/contents/TitleSubtitle";
 import Container from "./reusables/contents/Container";
 import Wrapper from "./reusables/contents/Wrapper";
 
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { X } from "lucide-react";
+import useMediaQuery from "@/hooks/useMediaQuery";
 const CONTACT_ITEMS = [
   {
     icon: <CiPhone className="w-4 md:w-5 h-4 md:h-5" />,
@@ -72,6 +72,7 @@ const ContactFormSchema = z.object({
 type ContactFormData = z.infer<typeof ContactFormSchema>;
 
 export default function ContactForm() {
+  const isMobile=useMediaQuery("(max-width: 768px)");
   const methods = useForm<ContactFormData>({
     resolver: zodResolver(ContactFormSchema),
     mode: "all",
@@ -121,7 +122,7 @@ export default function ContactForm() {
 
           {/* Right Side */}
           <div className="flex-1 p-4">
-            <BlurFade inView delay={0.2} className="flex flex-col gap-2">
+            <BlurFade inView={!isMobile} delay={0.2} className="flex flex-col gap-2">
               <h2 className="text-3xl font-syncopate font-bold tracking-tighter sm:text-5xl">
                 <span className="text-primary">Get in</span> Touch.
               </h2>

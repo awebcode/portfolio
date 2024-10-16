@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/utils/cn";
 import { SparklesCore } from "@/components/ui/sparkles";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export const Cover = ({
   children,
@@ -11,7 +12,8 @@ export const Cover = ({
 }: {
   children?: React.ReactNode;
   className?: string;
-}) => {
+  }) => {
+   const isMobile = useMediaQuery("(max-width: 768px)");
   const [hovered, setHovered] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -59,7 +61,7 @@ export const Cover = ({
               }}
               transition={{
                 translateX: {
-                  duration: 10,
+                  duration: isMobile?25:10,
                   ease: "linear",
                   repeat: Infinity,
                 },
@@ -68,17 +70,17 @@ export const Cover = ({
             >
               <SparklesCore
                 background="transparent"
-                minSize={0.4}
+                minSize={0.5}
                 maxSize={1}
-                particleDensity={500}
+                particleDensity={600}
                 className="w-full h-full"
                 particleColor="#FFFFFF"
               />
               <SparklesCore
                 background="transparent"
-                minSize={0.4}
+                minSize={0.5}
                 maxSize={1}
-                particleDensity={500}
+                particleDensity={600}
                 className="w-full h-full"
                 particleColor="#FFFFFF"
               />
