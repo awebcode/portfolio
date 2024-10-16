@@ -70,23 +70,25 @@ const Projects = () => {
   return (
     <Wrapper id="projects" className="">
       <Container className=" mx-auto">
-        <Link
-          href="/project/new/create"
-          className="group flex items-center justify-end text-right gap-2 text-primary hover:underline"
-        >
-          <span> Create New</span>{" "}
-          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
-        </Link>
-        <div className="my-8">
-          <TitleSubtitle
-            subTitlePosition="bottom"
-            title={
-              <>
-                My <span className="text-primary">Projects</span>
-              </>
-            }
-            subtitle="I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites."
-          />
+        <div className="my-8 flex-between items-start gap-2">
+          <div className="basis-3/4">
+            <TitleSubtitle
+              subTitlePosition="bottom"
+              title={
+                <>
+                  My <span className="text-primary">Projects</span>
+                </>
+              }
+              subtitle="I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites."
+            />
+          </div>
+          <Link
+            href="/project/new/create"
+            className="group flex items-center justify-between text-right gap-2 text-primary hover:underline"
+          >
+            <span> Create New</span>{" "}
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+          </Link>
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 mx-auto">
           {items.slice(0, visibleCount).map((project, id) => (
@@ -101,7 +103,7 @@ const Projects = () => {
                 image={project.image}
                 video={project.video}
                 links={(project.links as any) || []}
-                isDbProject={project.isDbProject||project.id?.length>15}
+                isDbProject={project.isDbProject || project.id?.length > 15}
                 projectId={project.id}
               />
             </BlurFade>
