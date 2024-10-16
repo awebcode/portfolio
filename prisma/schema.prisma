@@ -21,6 +21,7 @@ model Project {
   title        String
   href         String
   dates        String
+  isDbProject  Boolean  @default(true)
   status       Status   @default(Active) // Use the Status enum and set default value
   description  String
   technologies String[] // Array of strings to store technologies

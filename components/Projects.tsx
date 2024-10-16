@@ -101,7 +101,7 @@ const Projects = () => {
                 image={project.image}
                 video={project.video}
                 links={(project.links as any) || []}
-                isDbProject={project.id?.length>15}
+                isDbProject={project.isDbProject||project.id?.length>15}
                 projectId={project.id}
               />
             </BlurFade>

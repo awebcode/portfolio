@@ -60,7 +60,7 @@ const ReviewCard = ({ img, name, username, body }: Review) => {
 export default function Testimonials() {
   return (
     <Wrapper>
-      <div className="relative flex h-[500px] w-full flex-col  justify-center overflow-hidden rounded-lg border">
+      <div className="relative flex min-h-[600px] w-full flex-col items-center  justify-center overflow-hidden rounded-lg border">
         <Container>
           {" "}
           <TitleSubtitle

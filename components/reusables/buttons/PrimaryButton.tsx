@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { CoolMode } from "@/components/ui/cool-mode";
 import { useRouter } from "next/navigation";
+import ShimmerButton from "@/components/ui/shimmer-button";
 
 // Define mutually exclusive prop types
 type ButtonWithHref = {
@@ -75,19 +76,19 @@ const PrimaryButton: FC<ButtonProps> = ({
 
   return (
     <CoolMode>
-      <motion.button
-        {...animations}
-        transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.3 }}
-        className={cn(
-          "px-3 py-2 md:font-syncopate md:px-8  md:py-4 border-2 border-black dark:border-white uppercase bg-emerald-500 text-white transition duration-200 text-base/relaxed md:text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] Brutal",
-          className
-        )}
-        onClick={goTo}
-        type={type}
-        {...(props as any)}
-      >
-        {children}
-      </motion.button>
+      <ShimmerButton onClick={goTo} className={cn(`shadow-2xl text-white `,className)}>
+        <motion.span
+          {...animations}
+          transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.3 }}
+          className={cn(
+            " text-white  uppercase  transition duration-200 text-base/relaxed md:text-sm "
+          )}
+          type={type}
+          {...(props as any)}
+        >
+          {children}
+        </motion.span>
+      </ShimmerButton>
     </CoolMode>
   );
 };

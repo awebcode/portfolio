@@ -31,7 +31,7 @@ const ScrollToTop: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed bottom-28 md:bottom-10 right-5 z-50"
+      className="fixed bottom-6 md:bottom-10 right-5 z-50"
       initial={{ opacity: 0, y: 50, scale: 0.8 }}
       animate={{
         opacity: isVisible ? 1 : 0,
@@ -53,7 +53,7 @@ const ScrollToTop: React.FC = () => {
           onClick={scrollToTop}
           className="p-2 md:p-3 bg-primary rounded-full text-white shadow-lg hover:bg-blue-500"
         >
-          <ArrowUpIcon className="w-4 md:w-6 h-4 md:h-6" />
+          <ArrowUpIcon className="w-5 md:w-6 h-5 md:h-6" />
         </button>
       )}
     </motion.div>
