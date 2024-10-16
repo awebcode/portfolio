@@ -1,4 +1,5 @@
 "use client";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { cn } from "@/utils/cn";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useRef, useState, useEffect } from "react";
@@ -12,6 +13,7 @@ export const BackgroundBeamsWithCollision = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
+  const isMobile=useMediaQuery("(max-width: 768px)");
 
   const beams = [
     {
@@ -111,7 +113,7 @@ export const BackgroundBeamsWithCollision = ({
         className
       )}
     >
-      {beams.map((beam) => (
+     {!isMobile&& beams.map((beam) => (
         <CollisionMechanism
           key={beam.initialX + "beam-idx"}
           beamOptions={beam}

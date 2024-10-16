@@ -13,6 +13,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 export default function Hero() {
    const isMobile = useMediaQuery("(max-width: 768px)");
   return (
+    
     <BackgroundBeamsWithCollision className="relative min-h-screen h-full">
       <Spotlight className="top-14 left-10 md:left-52 md:-top-20 " fill="white" />
       <HeroHighlight containerClassName=" bg-white dark:bg-black shadow-none min-h-screen h-full py-10">
