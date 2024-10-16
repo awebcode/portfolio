@@ -21,7 +21,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: isMobile ? 0 : 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0 : 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="text-center font-opensans text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
+            className="text-center font-opensans text-4xl md:text-6xl font-extrabold text-neutral-800 dark:text-white"
           >
             <span className="font-syncopate"> Hi, I’m </span>
             <Cover>
