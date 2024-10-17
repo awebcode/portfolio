@@ -33,7 +33,6 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
-    
   ],
   contact: {
     email: "asikurrahaman997@gmail.com",
@@ -232,7 +231,7 @@ export const DATA = {
     },
     {
       title: "Quickbuy - Ecommerce",
-      href: "https://quickbuy-store.vercel.app/",
+      href: "https://next.medusajs.com/us/",
       dates: "July 2024 - Present",
       active: true,
       description:
@@ -255,7 +254,7 @@ export const DATA = {
       links: [
         {
           type: "Store",
-          href: "https://quickbuy-store.vercel.app/",
+          href: "https://next.medusajs.com/us/",
           icon: Icons.globe,
         },
         {
