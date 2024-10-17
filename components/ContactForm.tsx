@@ -229,7 +229,7 @@ const ContactInformation = () => {
       <div className="mt-4 space-y-2">
         {SOCIAL_LINKS.map((link, index) => (
           <p key={index} className="group cursor-pointer flex-center justify-start gap-2">
-            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-white group-hover:bg-emerald-100 text-gray-500 rounded-full transition-all">
+            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-white group-hover:bg-emerald-100 dark:group-hover:text-emerald-500 text-gray-500 rounded-full transition-all">
               {link.icon}
             </span>
             <Link href={link.url} className="text-blue-500 hover:underline">
