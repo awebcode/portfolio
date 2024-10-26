@@ -21,6 +21,8 @@ import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { X } from "lucide-react";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { Meteors } from "./ui/meteors";
+import { ResumeIcon } from "@radix-ui/react-icons";
 const CONTACT_ITEMS = [
   {
     icon: <CiPhone className="w-4 md:w-5 h-4 md:h-5" />,
@@ -59,6 +61,11 @@ const SOCIAL_LINKS = [
     icon: <FaFacebook className="w-4 md:w-5 h-4 md:h-5" />,
     url: DATA.contact.social.facebook.url,
   },
+  {
+    label:"Resume",
+    icon: <ResumeIcon className="w-4 md:w-5 h-4 md:h-5" />,
+    url: DATA.contact.social.Resume.url
+  }
 ];
 
 // Zod Schema for Validation
@@ -218,7 +225,7 @@ const ContactInformation = () => {
       <div className="mt-4 space-y-2">
         {CONTACT_ITEMS.map((item, index) => (
           <p key={index} className="group cursor-pointer flex-center justify-start gap-2">
-            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-white group-hover:bg-emerald-100 text-gray-500 rounded-full transition-all">
+            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-gray-200 group-hover:bg-emerald-100 dark:group-hover:text-emerald-500 text-gray-500 rounded-full transition-all">
               {item.icon}
             </span>
             {item.content}
@@ -229,7 +236,7 @@ const ContactInformation = () => {
       <div className="mt-4 space-y-2">
         {SOCIAL_LINKS.map((link, index) => (
           <p key={index} className="group cursor-pointer flex-center justify-start gap-2">
-            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-white group-hover:bg-emerald-100 dark:group-hover:text-emerald-500 text-gray-500 rounded-full transition-all">
+            <span className="p-2 md:p-3  bg-gray-100 dark:bg-gray-700 dark:text-gray-200 group-hover:bg-emerald-100 dark:group-hover:text-emerald-500 text-gray-500 rounded-full transition-all">
               {link.icon}
             </span>
             <Link href={link.url} className="text-blue-500 hover:underline">
@@ -238,6 +245,7 @@ const ContactInformation = () => {
           </p>
         ))}
       </div>
+      <Meteors number={8} />
     </>
   );
 };

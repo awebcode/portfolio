@@ -1,4 +1,5 @@
 import { Icons } from "@/components/icons";
+import { ResumeIcon } from "@radix-ui/react-icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { FiFacebook } from "react-icons/fi";
 
@@ -76,6 +77,12 @@ export const DATA = {
         name: "Facebook",
         url: "https://facebook.com/awebcodee",
         icon: FiFacebook,
+        navbar: false,
+      },
+      Resume: {
+        name: "Resume",
+        url: "https://www.canva.com/design/DAFuVlHGZVc/AAHGrFxeLFLIOy16wW4uoA/edit",
+        icon: ResumeIcon,
         navbar: false,
       },
     },

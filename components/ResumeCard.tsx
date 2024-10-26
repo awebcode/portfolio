@@ -99,7 +99,7 @@ export const ResumeCard = ({
         </div>
       </Card>
       {/* Meaty part - Meteor effect */}
-      {/* <Meteors number={12} /> */}
+      <Meteors number={8} />
     </Link>
   );
 };
