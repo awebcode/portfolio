@@ -70,7 +70,7 @@ export default function ProjectCard({
       }
     >
       {isDbProject && (
-        <div className="hidden absolute top-0 right-1 group-hover:flex items-center justify-end gap-2">
+        <div className="hidden absolute top-0 right-1 p-2 z-50 group-hover:flex items-center justify-end gap-2 transition-all duration-300">
           <Link
             href={`/project/new/${projectId}`}
             className="group p-2 cursor-pointer bg-gray-100 rounded-full text-emerald-400 flex items-center justify-end text-right gap-2 text-primary hover:underline transition-all"
