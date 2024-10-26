@@ -15,6 +15,7 @@ import React from "react";
 import Markdown from "react-markdown";
 import { toast } from "sonner";
 import { Meteors } from "./ui/meteors";
+import { Skeleton } from "./ui/skeleton";
 
 interface Props {
   title: string;
@@ -93,7 +94,7 @@ export default function ProjectCard({
           className
         )}
       >
-        {video&&!image && (
+        {video && !image && (
           <div className="relative mx-auto h-full w-full">
             <video
               autoPlay
@@ -101,7 +102,7 @@ export default function ProjectCard({
               muted
               playsInline
               autoFocus
-              preload="auto"
+              preload="true"
               onPlay={() => setPlay(title)}
               onEnded={() => setPlay(null)}
               onError={() => setPlay(null)} // Optional: Handle error events
@@ -116,17 +117,9 @@ export default function ProjectCard({
             </video>
 
             {/* Fallback content */}
-            {videoLoading && (
-              <Image
-                src="/images/fallback3.png"
-                alt={title}
-                width={500}
-                height={300}
-                className="h-full w-full overflow-hidden object-cover object-top"
-              />
-            )}
+            {videoLoading && <Skeleton className="h-full w-full bg-muted rounded-xl" />}
           </div>
-        ) }
+        )}
 
         {image && (
           <Image
