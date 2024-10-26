@@ -117,6 +117,7 @@ export default function ContactForm() {
       });
     }
   };
+  const [hovered, setHovered] = React.useState(false);
 
   return (
     <Wrapper id="contact">
@@ -126,6 +127,7 @@ export default function ContactForm() {
           <div className="flex flex-col basis-1/3 p-4 md:border-r border-primary/50 ">
             <ContactInformation />
           </div>
+         
 
           {/* Right Side */}
           <div className="flex-1 p-4">
