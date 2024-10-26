@@ -55,7 +55,7 @@ export default function ProjectCard({
   const deleteProjectHandler = async () => {
     if (projectId && confirm("Are you sure you want to delete this project?")) {
       try {
-        await deleteProject(projectId);
+        // await deleteProject(projectId);
         toast.success("Project deleted successfully");
       } catch (error) {
         toast.error("Failed to delete the project");
