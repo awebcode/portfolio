@@ -17,6 +17,7 @@ import FloatingNavbar from "../components/header/Header";
 import FloatingDockButtons from "@/components/FloatingDock";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Particles from "@/components/ui/particles";
+import { disableAnimationsOnMobile } from "@/utils/disableFramermotion";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -48,12 +49,13 @@ export const viewport = generateViewport({});
 export const metadata = generateSEO({});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  disableAnimationsOnMobile
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${poppins.variable} ${poppins.className} ${josefin.variable} ${glory.variable} ${syncopate.variable} ${opensans.variable} ${opensans.className} relative bg-background min-h-screen flex justify-around flex-col gap-4`}
       >
-        <TooltipProvider delayDuration={0}>
+        <TooltipProvider delayDuration={200}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -71,7 +73,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Particles
               className="absolute inset-0"
               ease={80}
-              refresh
             />
             <Toaster toastOptions={{ duration: 3000 }} theme="light" />
             <ScrollToTop />

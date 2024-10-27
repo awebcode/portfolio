@@ -131,7 +131,7 @@ const ProjectCard: React.FC<Props> = ({
         <time className="text-xs font-sans">{dates}</time>
         {link && (
           <div className="hidden text-xs underline font-sans print:visible">
-            {link.replace(/https?:\/\/(www\.)?/, "").replace("/", "")}
+            {link}
           </div>
         )}
         <Markdown className="prose max-w-full text-pretty text-xs font-sans text-muted-foreground dark:prose-invert">

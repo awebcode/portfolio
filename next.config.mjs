@@ -7,45 +7,33 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
+      
       },
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "aws.amazon.com",
-        port: "",
-        pathname: "/**",
+      
       },
       {
         protocol: "https",
         hostname: "assets.aceternity.com",
-        port: "",
-        pathname: "/**",
       },
 
       {
         protocol: "https",
         hostname: "avatar.vercel.sh",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "s3.amazonaws.com",
-        port: "",
-        pathname: "/**",
       },
     ],
   },

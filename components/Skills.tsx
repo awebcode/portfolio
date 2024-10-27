@@ -4,12 +4,11 @@ import TitleSubtitle from "./reusables/contents/TitleSubtitle";
 import Container from "./reusables/contents/Container";
 import Wrapper from "./reusables/contents/Wrapper";
 import { Badge } from "./ui/badge";
-import { useEffect,  useState } from "react";
 // File "Icon.tsx"
 import { FaReact, FaNodeJs,FaDocker } from "react-icons/fa";
 import {IoDocumentTextOutline,IoKeyOutline} from "react-icons/io5"
 import {PiStack} from "react-icons/pi"
-import { Meteors } from "./ui/meteors";
+import useMediaQuery from "@/hooks/useMediaQuery";
 const iconSlugs: DynamicCloudProps["iconSlugs"] = [
   "typescript",
   "javascript",
@@ -132,6 +131,7 @@ const technologies = [
 ];
 
 export default function Skills() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
 
   return (
@@ -142,7 +142,7 @@ export default function Skills() {
         {/* Icon cloud for visual appeal */}
         {/* <Meteors number={12} /> */}
 
-        <IconCloud iconSlugs={iconSlugs} />
+        {!isMobile && <IconCloud iconSlugs={iconSlugs} />}
 
         {/* Render each technology category */}
         <div className="space-y-4 mt-6 grid grid-cols-1  md:grid-cols-2 gap-2">

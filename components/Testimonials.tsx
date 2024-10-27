@@ -39,11 +39,13 @@ const ReviewCard = ({ img, name, username, body }: Review) => {
     >
       <div className="flex items-center gap-2">
         <Image
-          className="rounded-full"
+          src={img}
+          className="rounded-full object-cover"
           width={32}
           height={32}
           alt={`${name}'s avatar`}
-          src={img}
+          unoptimized
+          loading="lazy"
         />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium text-gray-400 dark:text-white">
