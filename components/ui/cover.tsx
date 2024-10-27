@@ -12,8 +12,8 @@ export const Cover = ({
 }: {
   children?: React.ReactNode;
   className?: string;
-  }) => {
-   const isMobile = useMediaQuery("(max-width: 768px)");
+}) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [hovered, setHovered] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -61,7 +61,7 @@ export const Cover = ({
               }}
               transition={{
                 translateX: {
-                  duration: isMobile?25:10,
+                  duration: isMobile ? 25 : 10,
                   ease: "linear",
                   repeat: Infinity,
                 },
@@ -173,10 +173,7 @@ export const Beam = ({
       className={cn("absolute inset-x-0 w-full", className)}
       {...svgProps}
     >
-      <motion.path
-        d={`M0 0.5H${width ?? "600"}`}
-        stroke={`url(#svgGradient-${id})`}
-      />
+      <motion.path d={`M0 0.5H${width ?? "600"}`} stroke={`url(#svgGradient-${id})`} />
 
       <defs>
         <motion.linearGradient

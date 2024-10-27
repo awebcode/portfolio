@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Container from "./reusables/contents/Container";
 import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collision";
 import { HeroHighlight } from "./ui/hero-highlight";
@@ -10,6 +9,7 @@ import { Spotlight } from "./ui/spotlight";
 import BlurFade from "./ui/blur-fade";
 import Wrapper from "./reusables/contents/Wrapper";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import AnimatedElement from "./AnimatedElement";
 
 export default function About() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -21,7 +21,7 @@ export default function About() {
           <Container className="flex flex-col md:flex-row items-center md:items-start gap-10 mt-10">
             {/* Left Section - About Me Text */}
 
-            <BlurFade inView={!isMobile} delay={isMobile ? 0.1 : 0.5} className="md:w-1/2">
+            <BlurFade inView={!isMobile} delay={isMobile ? 0 : 0.5} className="md:w-1/2">
               <TitleSubtitle
                 title={
                   <>
@@ -58,13 +58,13 @@ export default function About() {
             </BlurFade>
 
             {/* Right Section - Profile Image */}
-            <motion.div
+            <AnimatedElement
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               className="md:w-1/2 flex justify-center"
             >
-              <BlurFade inView={!isMobile} delay={isMobile ? 0.1 : 0.5}>
+              <BlurFade inView={!isMobile} delay={isMobile ? 0 : 0.5}>
                 <Image
                   src="/images/hero.png"
                   alt="Asikur Rahman"
@@ -73,7 +73,7 @@ export default function About() {
                   className="rounded-lg  object-cover"
                 />
               </BlurFade>
-            </motion.div>
+            </AnimatedElement>
           </Container>
         </HeroHighlight>
       </BackgroundBeamsWithCollision>

@@ -6,6 +6,7 @@ import { CoolMode } from "@/components/ui/cool-mode";
 import { useRouter } from "next/navigation";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import AnimatedElement from "@/components/AnimatedElement";
 
 // Define mutually exclusive prop types
 type ButtonWithHref = {
@@ -78,8 +79,13 @@ const PrimaryButton: FC<ButtonProps> = ({
 
   return (
     <CoolMode>
-      <ShimmerButton shimmerDuration={isMobile?"5s":"3s"} onClick={goTo} className={cn(`shadow-2xl text-white `,className)}>
-        <motion.span
+      <ShimmerButton
+        shimmerDuration={isMobile ? "5s" : "3s"}
+        onClick={goTo}
+        className={cn(`shadow-2xl text-white `, className)}
+      >
+        <AnimatedElement
+          as="span"
           {...animations}
           transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.3 }}
           className={cn(
@@ -89,7 +95,7 @@ const PrimaryButton: FC<ButtonProps> = ({
           {...(props as any)}
         >
           {children}
-        </motion.span>
+        </AnimatedElement>
       </ShimmerButton>
     </CoolMode>
   );

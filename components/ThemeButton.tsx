@@ -3,8 +3,8 @@
 import * as React from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import AnimatedElement from "./AnimatedElement";
 
 const ThemeToggle: React.FC = () => {
   const { setTheme, theme } = useTheme();
@@ -22,7 +22,8 @@ const ThemeToggle: React.FC = () => {
   const nextTheme = isDark ? "light" : "dark";
 
   return (
-    <motion.button
+    <AnimatedElement
+      as="button"
       className="flex items-center justify-center p-2 rounded-full  transition-colors hover:bg-gray-300 hover:bg-gray-300  hover:text-black"
       onClick={() => setTheme(nextTheme)}
       whileHover={{ scale: 1.1 }}
@@ -37,7 +38,7 @@ const ThemeToggle: React.FC = () => {
           {isDark ? "Light Mode" : "Dark Mode"}
         </TooltipContent>
       </Tooltip>
-    </motion.button>
+    </AnimatedElement>
   );
 };
 

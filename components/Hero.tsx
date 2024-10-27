@@ -9,15 +9,17 @@ import GoToArrowDown from "./reusables/contents/GoToArrowDown";
 import { Spotlight } from "./ui/spotlight";
 import { Cover } from "./ui/cover";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import AnimatedElement from "./AnimatedElement";
 
 export default function Hero() {
-   const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
-    <BackgroundBeamsWithCollision className="relative min-h-screen h-full">
+    <BackgroundBeamsWithCollision className="relative md:min-h-[80vh] h-full">
       <Spotlight className="top-14 left-10 md:left-52 md:-top-20 " fill="white" />
       <HeroHighlight containerClassName=" bg-white dark:bg-black shadow-none min-h-screen h-full py-10">
-        <Container>
-          <motion.h1
+        <Container id="home">
+          <AnimatedElement
+            as="h1"
             initial={{ opacity: 0, y: isMobile ? 0 : 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0 : 0.6, ease: [0.4, 0, 0.2, 1] }}
@@ -25,9 +27,9 @@ export default function Hero() {
           >
             <span className="font-syncopate"> Hi, I’m </span>
             {isMobile ? (
-                <span className="font-bold  font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
-                  Asikur Rahman
-                </span>
+              <span className="font-bold  font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
+                Asikur Rahman
+              </span>
             ) : (
               <Cover>
                 <span className="font-bold font-glory text-transparent  bg-gradient-to-r from-violet-500 via-pink-400 to-emerald-400  bg-clip-text">
@@ -35,12 +37,13 @@ export default function Hero() {
                 </span>{" "}
               </Cover>
             )}
-          </motion.h1>
+          </AnimatedElement>
 
-          <motion.p
-            initial={{ opacity: 0, y: isMobile ? 0 : 10 }}
+          <AnimatedElement
+          as="p"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: isMobile ? 0 : 0.2, duration: isMobile ? 0.1 : 0.5 }}
+            transition={{ delay:  0.2, duration:  0.5 }}
             className="mt-4 font-opensans text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl text-center mx-auto"
           >
             I build beautiful interfaces , real-time and full-stack applications using
@@ -48,12 +51,12 @@ export default function Hero() {
             <span className="font-semibold"> Next.js,</span>{" "}
             <span className="font-semibold">Node.js,</span>, and{" "}
             <span className="font-semibold">Medusa</span>.
-          </motion.p>
+          </AnimatedElement>
 
-          <motion.div
-            initial={{ opacity: 0, y: isMobile ? 0 : 10 }}
+          <AnimatedElement
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: isMobile ? 0.2 : 0.4, duration: isMobile ? 0.1 : 0.5 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
             className="mt-8 flex justify-center space-x-3"
           >
             <PrimaryButton href="#projects">Explore My Work</PrimaryButton>
@@ -61,7 +64,7 @@ export default function Hero() {
             <PrimaryButton href="#contact" className="bg-primary hover:bg-indigo-400">
               Get in Touch
             </PrimaryButton>
-          </motion.div>
+          </AnimatedElement>
         </Container>
       </HeroHighlight>
       <GoToArrowDown to="about" className="block" />

@@ -13,7 +13,7 @@ export const BackgroundBeamsWithCollision = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
-  const isMobile=useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const beams = [
     {
@@ -113,14 +113,15 @@ export const BackgroundBeamsWithCollision = ({
         className
       )}
     >
-     {!isMobile&& beams.map((beam) => (
-        <CollisionMechanism
-          key={beam.initialX + "beam-idx"}
-          beamOptions={beam}
-          containerRef={containerRef}
-          parentRef={parentRef}
-        />
-      ))}
+      {!isMobile &&
+        beams.map((beam) => (
+          <CollisionMechanism
+            key={beam.initialX + "beam-idx"}
+            beamOptions={beam}
+            containerRef={containerRef}
+            parentRef={parentRef}
+          />
+        ))}
 
       {children}
       <div

@@ -92,7 +92,10 @@ const Projects = () => {
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 mx-auto">
           {items.slice(0, visibleCount).map((project, id) => (
-            <BlurFade key={project.id} delay={BLUR_FADE_DELAY * 3 + id * 0.05}>
+            <BlurFade
+              key={project.id}
+              delay={isMobile ? 0 : BLUR_FADE_DELAY * 3 + id * 0.05}
+            >
               <ProjectCard
                 href={project.href}
                 title={project.title}

@@ -13,7 +13,7 @@ import { cn } from "@/utils/cn";
 import { Edit, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import Markdown from "react-markdown";
 import { toast } from "sonner";
 import { Meteors } from "./ui/meteors";
