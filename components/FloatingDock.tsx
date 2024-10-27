@@ -18,7 +18,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Dock, DockIcon } from "@/components/ui/dock";
-import ThemeToggle from "./header/ThemeButton";
+import ThemeToggle from "./ThemeButton";
 import { GrProjects } from "react-icons/gr";
 import { TfiServer } from "react-icons/tfi";
 
