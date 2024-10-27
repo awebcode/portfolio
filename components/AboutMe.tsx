@@ -15,9 +15,9 @@ export default function About() {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <Wrapper id="about">
-      <BackgroundBeamsWithCollision className=" min-h-screen h-full">
+      <BackgroundBeamsWithCollision className=" md:min-h-screen h-full">
         <Spotlight className="-top-10 left-10 md:left-32 md:-top-20" fill="white" />
-        <HeroHighlight containerClassName="bg-white dark:bg-black  min-h-screen h-full py-10 ">
+        <HeroHighlight containerClassName="bg-white dark:bg-black  md:min-h-screen h-full py-4 md:py-10 ">
           <Container className="flex flex-col md:flex-row items-center md:items-start gap-10 mt-10">
             {/* Left Section - About Me Text */}
 
@@ -62,7 +62,7 @@ export default function About() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="md:w-1/2 flex justify-center"
+              className="md:w-1/2 hidden md:flex justify-center "
             >
               <BlurFade inView={!isMobile} delay={isMobile ? 0 : 0.5}>
                 <Image

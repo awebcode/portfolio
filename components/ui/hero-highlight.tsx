@@ -27,6 +27,9 @@ export const HeroHighlight = ({
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
+
+  const isMobile = useMediaQuery("(max-width: 640px)");
+  if (isMobile) return <div className="min-h-[27rem] py-8 bg-background">{children}</div>
   return (
     <div
       className={cn(
