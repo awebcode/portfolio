@@ -7,6 +7,7 @@ import Wrapper from "./reusables/contents/Wrapper";
 import { faker } from "@faker-js/faker";
 import { positiveReviews } from "./data/DATA";
 import Container from "./reusables/contents/Container";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 interface Review {
   name: string;
@@ -60,6 +61,7 @@ const ReviewCard = ({ img, name, username, body }: Review) => {
 };
 
 export default function Testimonials() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <Wrapper>
       <div className="relative flex min-h-[600px] w-full flex-col items-center  justify-center overflow-hidden rounded-lg border">
@@ -75,18 +77,21 @@ export default function Testimonials() {
             subtitle="Building trust through collaboration and delivering exceptional results."
           />
         </Container>
-
-        <Marquee className="[--duration:30s]">
-          {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-
-        <Marquee reverse className="[--duration:30s]">
-          {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
+        {!isMobile && (
+          <>
+            {" "}
+            <Marquee className="[--duration:30s]">
+              {firstRow.map((review) => (
+                <ReviewCard key={review.username} {...review} />
+              ))}
+            </Marquee>
+            <Marquee reverse className="[--duration:30s]">
+              {secondRow.map((review) => (
+                <ReviewCard key={review.username} {...review} />
+              ))}
+            </Marquee>
+          </>
+        )}
       </div>
     </Wrapper>
   );

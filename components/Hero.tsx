@@ -10,11 +10,13 @@ import { Spotlight } from "./ui/spotlight";
 import { Cover } from "./ui/cover";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import AnimatedElement from "./AnimatedElement";
+import ScrollLinkUp from "./ScrollLinkUp";
 
 export default function Hero() {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <BackgroundBeamsWithCollision className="relative md:min-h-[80vh] h-full">
+     <ScrollLinkUp/>
       <Spotlight className="top-14 left-10 md:left-52 md:-top-20 " fill="white" />
       <HeroHighlight containerClassName=" bg-white dark:bg-black shadow-none min-h-screen h-full py-10">
         <Container id="home">
