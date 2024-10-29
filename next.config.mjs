@@ -2,12 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  cacheMaxMemorySize: 1024 * 1024 * 100,
+  compress: true,
   images: {
+    unoptimized: true,
+    minimumCacheTTL: 60 * 60 * 24,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+
     remotePatterns: [
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-      
       },
       {
         protocol: "https",
@@ -20,7 +26,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "aws.amazon.com",
-      
       },
       {
         protocol: "https",

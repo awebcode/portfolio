@@ -8,7 +8,14 @@ import { faker } from "@faker-js/faker";
 import { positiveReviews } from "./data/DATA";
 import Container from "./reusables/contents/Container";
 import useMediaQuery from "@/hooks/useMediaQuery";
-
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 interface Review {
   name: string;
   username: string;
@@ -92,7 +99,32 @@ export default function Testimonials() {
             </Marquee>
           </>
         )}
+        {isMobile && <MobileCarousel items={firstRow} />}
+        {isMobile && <MobileCarousel items={secondRow} />}
       </div>
     </Wrapper>
+  );
+}
+
+function MobileCarousel({ items }: { items: Review[] }) {
+  return (
+    <Carousel
+      opts={{
+        align: "center",
+      }}
+      className="w-full p-2 my-4 relative "
+    >
+      <CarouselContent>
+        {items.map((review, index) => (
+          <CarouselItem key={index} className="basis-2/2 md:basis-2/3 lg:basis-1/3">
+            <ReviewCard key={review.username} {...review} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <div className={cn("absolute -top-4 right-12 flex gap-2 items-center")}>
+        <CarouselPrevious className="text-primary border-primary/50 dark:border-white/50 dark:text-white " />
+        <CarouselNext className="text-primary border-primary/50 dark:border-white/50 dark:text-white " />
+      </div>
+    </Carousel>
   );
 }

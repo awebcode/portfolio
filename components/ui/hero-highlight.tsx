@@ -29,7 +29,7 @@ export const HeroHighlight = ({
   }
 
   const isMobile = useMediaQuery("(max-width: 640px)");
-  if (isMobile) return <div className="min-h-[27rem] py-8 bg-background">{children}</div>
+  // if (isMobile) return <div className="min-h-[27rem] py-8 bg-background">{children}</div>
   return (
     <div
       className={cn(
