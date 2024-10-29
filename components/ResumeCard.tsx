@@ -33,8 +33,8 @@ export const ResumeCard = ({
   
 
   return (
-    <Link href={href || "#"} className="cursor-pointer  " >
-      <Card className="flex items-center px-4 ">
+    <Link href={href || "#"} className="cursor-pointer  ">
+      <Card className="flex flex-wrap md:flex-nowrap items-center p-2 px-4 ">
         <div className="">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
@@ -42,9 +42,9 @@ export const ResumeCard = ({
           </Avatar>
         </div>
         <div className="flex-grow  items-center flex-col group">
-          <CardHeader>
+          <div className="my-3">
             <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+              <h3 className="inline-flex  items-center justify-center font-semibold leading-none text-xs sm:text-sm">
                 {title}
                 {badges && (
                   <span className="hidden sm:inline-flex gap-x-1">
@@ -61,7 +61,7 @@ export const ResumeCard = ({
                 )}
                 <ChevronRightIcon
                   className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100"
                     // isExpanded ? "rotate-90" : "rotate-0"
                   )}
                 />
@@ -71,7 +71,7 @@ export const ResumeCard = ({
               </div>
             </div>
             {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
-          </CardHeader>
+          </div>
           {description && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}

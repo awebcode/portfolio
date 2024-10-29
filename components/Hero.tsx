@@ -10,7 +10,7 @@ import { Spotlight } from "./ui/spotlight";
 import { Cover } from "./ui/cover";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import AnimatedElement from "./AnimatedElement";
-import ScrollLinkUp from "./ScrollLinkUp";
+// import ScrollLinkUp from "./ScrollLinkUp";
 
 export default function Hero() {
   const isMobile = useMediaQuery("(max-width: 768px)");
