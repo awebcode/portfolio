@@ -85,11 +85,12 @@ const ProjectCard: React.FC<Props> = ({
       <Image
         src={image}
         alt={title}
-        width={500}
-        height={300}
+        // width={500}
+        // height={300}
         loading="lazy"
         unoptimized
-        className="h-full w-full object-cover"
+        className="h-full w-full object-contain"
+        fill
       />
     );
 
@@ -119,7 +120,7 @@ const ProjectCard: React.FC<Props> = ({
       <Link
         href={href}
         className={cn(
-          "block cursor-pointer h-44 md:h-52"
+          "block relative cursor-pointer h-44 md:h-52"
         
         )}
       >

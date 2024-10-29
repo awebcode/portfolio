@@ -30,17 +30,10 @@ export const ResumeCard = ({
   period,
   description,
 }: ResumeCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (description) {
-      e.preventDefault();
-      setIsExpanded(!isExpanded);
-    }
-  };
+  
 
   return (
-    <Link href={href || "#"} className="cursor-pointer  " onClick={handleClick}>
+    <Link href={href || "#"} className="cursor-pointer  " >
       <Card className="flex items-center px-4 ">
         <div className="">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
@@ -69,7 +62,7 @@ export const ResumeCard = ({
                 <ChevronRightIcon
                   className={cn(
                     "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0"
+                    // isExpanded ? "rotate-90" : "rotate-0"
                   )}
                 />
               </h3>
@@ -83,15 +76,15 @@ export const ResumeCard = ({
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{
-                opacity: isExpanded ? 1 : 0,
+                opacity: 1,
 
-                height: isExpanded ? "auto" : 0,
+                height: "auto",
               }}
               transition={{
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm truncate"
+              className="mt-2 text-xs sm:text-sm"
             >
               {description}
             </motion.div>
@@ -99,7 +92,7 @@ export const ResumeCard = ({
         </div>
       </Card>
       {/* Meaty part - Meteor effect */}
-      <Meteors number={8} />
+      {/* <Meteors number={8} /> */}
     </Link>
   );
 };

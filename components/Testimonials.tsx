@@ -71,7 +71,7 @@ export default function Testimonials() {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <Wrapper>
-      <div className="relative flex min-h-[600px] w-full flex-col items-center  justify-center overflow-hidden rounded-lg border">
+      <div className="relative flex min-h-[600px] w-full   flex-col items-center  justify-center overflow-hidden rounded-lg border">
         <Container>
           {" "}
           <TitleSubtitle
@@ -112,7 +112,7 @@ function MobileCarousel({ items }: { items: Review[] }) {
       opts={{
         align: "center",
       }}
-      className="w-full p-2 my-4 relative "
+      className="w-full  p-2 my-4 relative "
     >
       <CarouselContent>
         {items.map((review, index) => (
@@ -121,7 +121,7 @@ function MobileCarousel({ items }: { items: Review[] }) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className={cn("absolute -top-4 right-12 flex gap-2 items-center")}>
+      <div className={cn("absolute -top-4 right-14 flex gap items-center")}>
         <CarouselPrevious className="text-primary border-primary/50 dark:border-white/50 dark:text-white " />
         <CarouselNext className="text-primary border-primary/50 dark:border-white/50 dark:text-white " />
       </div>

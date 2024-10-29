@@ -23,7 +23,7 @@ const AnimatedElement = <T extends ElementType = "div">(
   ref: Ref<React.ElementRef<T>> // Set the ref type correctly
 ) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-
+  
   // Ensure the Component is a valid element type for Framer Motion
   const MotionComponent = motion(Component as any); // Use `as any` to bypass the type error
   const WithoutMotion = Component as ElementType;

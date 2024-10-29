@@ -15,7 +15,7 @@ export default function About() {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <Wrapper id="about">
-      <BackgroundBeamsWithCollision className=" md:min-h-screen h-full">
+      <BackgroundBeamsWithCollision className=" md:min-h-screen h-full w-full">
         <Spotlight className="-top-10 left-10 md:left-32 md:-top-20" fill="white" />
         <HeroHighlight containerClassName="bg-white dark:bg-black  md:min-h-screen h-full py-4 md:py-10 ">
           <Container className="flex flex-col md:flex-row items-center md:items-start gap-10 mt-10">

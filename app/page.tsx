@@ -18,11 +18,11 @@ const page = () => {
       <Hero />
       <AboutMe />
       <Education />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Testimonials />
-      <ContactForm />
+       <Experience />
+      <Skills /> 
+       <Projects /> 
+       <Testimonials /> 
+       <ContactForm />
     </div>
   );
 };

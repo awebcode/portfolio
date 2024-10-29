@@ -106,7 +106,7 @@ export default function FloatingDockButtons() {
     <div
       className={`${
         isHidden ? "hidden" : "block"
-      } z-50 fixed  bottom-16 left-1/2 -translate-x-1/2  w-[95%] flex-center md:w-full flex-col items-center justify-center overflow-hidden rounded-lg  `}
+      } z-50 fixed  bottom-16 left-1/2 -translate-x-1/2  w-[85%] flex-center md:w-full flex-col items-center justify-center overflow-hidden rounded-lg  `}
     >
       <Dock direction="middle" className="relative w-full md:w-fit">
         <div

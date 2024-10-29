@@ -28,12 +28,12 @@ export const HeroHighlight = ({
     mouseY.set(clientY - top);
   }
 
-  const isMobile = useMediaQuery("(max-width: 640px)");
+  // const isMobile = useMediaQuery("(max-width: 640px)");
   // if (isMobile) return <div className="min-h-[27rem] py-8 bg-background">{children}</div>
   return (
     <div
       className={cn(
-        "relative h-[40rem] flex items-center bg-white dark:bg-black justify-center w-full group",
+        "relative h-[40rem]  flex items-center bg-white dark:bg-black justify-center  group",
         containerClassName
       )}
       onMouseMove={handleMouseMove}

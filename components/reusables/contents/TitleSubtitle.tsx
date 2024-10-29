@@ -38,7 +38,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
       )}
       <h1
         className={cn(
-          `text-3xl  md:text-4xl my-2  text-black dark:text-white  font-syncopate font-bold `,
+          `text-xl  md:text-3xl my-2  text-black dark:text-white  font-syncopate font-bold `,
           titleClassName
         )}
       >
